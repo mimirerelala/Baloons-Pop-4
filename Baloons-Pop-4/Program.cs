@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Balloons_Pops_game
+﻿namespace BaloonsPopsGame
 {
+    using System;
+    using System.Collections.Generic;
     class Program
     {
         static byte[,] gen(byte rows,byte columns)
