@@ -34,7 +34,7 @@
                 Console.Write("-");
             }
 
-            Console.WriteLine();         // trinket stuff for PrintMatrix() till here
+            Console.WriteLine();
             for (byte i = 0; i < matrix.GetLongLength(0); i++)
             {
                 Console.Write(i + " | ");
@@ -48,11 +48,12 @@
 
                     Console.Write(matrix[i, j] + " ");
                 }
+
                 Console.Write("| ");
                 Console.WriteLine();
             }
 
-            Console.Write("   ");     //some trinket stuff again
+            Console.Write("   ");
             for (byte col = 0; col < matrix.GetLongLength(1) * 2 + 1; col++)
             {
                 Console.Write("-");
@@ -73,7 +74,9 @@
                     CheckLeft(matrix, newRow, newcol, searchedItem);
                 }
                 else
+                {
                     return;
+                }
             }
             catch (IndexOutOfRangeException)
             {
@@ -93,7 +96,9 @@
                     CheckRight(matrix, newRow, newcol, searchedItem);
                 }
                 else
+                {
                     return;
+                }
             }
             catch (IndexOutOfRangeException)
             {
@@ -113,7 +118,9 @@
                     CheckUp(matrix, newRow, newcol, searchedItem);
                 }
                 else
+                {
                     return;
+                }
             }
             catch (IndexOutOfRangeException)
             {
@@ -133,7 +140,9 @@
                     CheckDown(matrix, newRow, newcol, searchedItem);
                 }
                 else
+                {
                     return;
+                }
             }
             catch (IndexOutOfRangeException)
             {
@@ -141,18 +150,21 @@
             }
         }
 
-        static bool ModifyMatrix(byte[,] matrixToModify, int rowAtm, int colAtm)
+        static bool ModifyMatrix(byte[,] matrixToModify, int row, int col)
         {
-            if (matrixToModify[rowAtm, colAtm] == 0)
+            if (matrixToModify[row, col] == 0)
             {
                 return true;
             }
-            byte searchedTarget = matrixToModify[rowAtm, colAtm];
-            matrixToModify[rowAtm, colAtm] = 0;
-            CheckLeft(matrixToModify, rowAtm, colAtm, searchedTarget);
-            CheckRight(matrixToModify, rowAtm, colAtm, searchedTarget);
-            CheckUp(matrixToModify, rowAtm, colAtm, searchedTarget);
-            CheckDown(matrixToModify, rowAtm, colAtm, searchedTarget);
+
+            byte searchedTarget = matrixToModify[row, col];
+            matrixToModify[row, col] = 0;
+            
+            CheckLeft(matrixToModify, row, col, searchedTarget);
+            CheckRight(matrixToModify, row, col, searchedTarget);
+            CheckUp(matrixToModify, row, col, searchedTarget);
+            CheckDown(matrixToModify, row, col, searchedTarget);
+            
             return false;
         }
 
@@ -210,7 +222,7 @@
             Console.WriteLine("----------------------------------");
         }
 
-        static bool IsPlayerInchart(string[,] chart, int points)
+        static bool IsPlayerInChart(string[,] chart, int points)
         {
             bool skilled = false;
             int worstMoves = 0;
@@ -276,7 +288,7 @@
                     default:
                         if ((commandInput.Length == 3) && (commandInput[0] >= '0' && commandInput[0] <= '9') && (commandInput[2] >= '0' && commandInput[2] <= '9') && (commandInput[1] == ' ' || commandInput[1] == '.' || commandInput[1] == ','))
                         {
-                            int userRow, usercol;
+                            int userRow, userCol;
                             userRow = int.Parse(commandInput[0].ToString());
                             if (userRow > 4)
                             {
@@ -284,8 +296,8 @@
                                 continue;
                             }
 
-                            usercol = int.Parse(commandInput[2].ToString());
-                            if (ModifyMatrix(matrix, userRow, usercol))
+                            userCol = int.Parse(commandInput[2].ToString());
+                            if (ModifyMatrix(matrix, userRow, userCol))
                             {
                                 Console.WriteLine("cannot pop missing ballon!");
                                 continue;
@@ -295,7 +307,7 @@
                             if (IsWinner(matrix))
                             {
                                 Console.WriteLine("Gratz ! You completed it in {0} moves.", userMoves);
-                                if (IsPlayerInchart(topFive, userMoves))
+                                if (IsPlayerInChart(topFive, userMoves))
                                 {
                                     SortAndPrintChart(topFive);
                                 }
