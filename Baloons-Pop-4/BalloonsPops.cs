@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    class Program
+    class BalloonsPops
     {
         static byte[,] gen(byte rows,byte columns)
         {
