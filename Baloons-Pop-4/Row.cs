@@ -2,19 +2,19 @@
 {
     using System;
     using System.Linq;
-    public struct structOfRow : IComparable<structOfRow>
+    public struct Row : IComparable<Row>
     {
 
         public int Value;
         public string Name;
-        public structOfRow(int value, string name)
+        public Row(int value, string name)
         {
 
             Value = value;
             Name = name;
         }
 
-        public int CompareTo(structOfRow other)
+        public int CompareTo(Row other)
         {
             return Value.CompareTo(other.Value);
         }

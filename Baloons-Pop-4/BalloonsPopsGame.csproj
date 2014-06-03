@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BalloonsPops.cs" />
-    <Compile Include="Struct.cs" />
+    <Compile Include="Row.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
