@@ -35,7 +35,6 @@
             }
 
             Console.WriteLine();         // trinket stuff for PrintMatrix() till here
-
             for (byte i = 0; i < matrix.GetLongLength(0); i++)
             {
                 Console.Write(i + " | ");
@@ -58,6 +57,7 @@
             {
                 Console.Write("-");
             }
+
             Console.WriteLine();
         }
 
@@ -186,7 +186,7 @@
             return isWinner;
         }
 
-        static void SortAndPrintchart(string[,] tableToSort)
+        static void SortAndPrintChart(string[,] tableToSort)
         {
             List<Row> klasirane = new List<Row>();
 
@@ -271,7 +271,7 @@
                         userMoves = 0;
                         break;
                     case "TOP":
-                        SortAndPrintchart(topFive);
+                        SortAndPrintChart(topFive);
                         break;
                     default:
                         if ((temp.Length == 3) && (temp[0] >= '0' && temp[0] <= '9') && (temp[2] >= '0' && temp[2] <= '9') && (temp[1] == ' ' || temp[1] == '.' || temp[1] == ','))
@@ -296,7 +296,7 @@
                                 Console.WriteLine("Gratz ! You completed it in {0} moves.", userMoves);
                                 if (IsPlayerInchart(topFive, userMoves))
                                 {
-                                    SortAndPrintchart(topFive);
+                                    SortAndPrintChart(topFive);
                                 }
                                 else
                                 {
