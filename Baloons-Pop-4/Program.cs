@@ -3,23 +3,6 @@ using System.Collections.Generic;
 
 namespace Balloons_Pops_game
 {
-    public struct structOfRow : IComparable<structOfRow>
-    {
-        
-        public int Value;
-        public string Name;
-        public structOfRow(int value,string name)
-        {
-            
-            Value = value;
-            Name = name;
-        }
-
-        public int CompareTo(structOfRow other)
-        {
-            return Value.CompareTo(other.Value);
-        }
-    }
     class Program
     {
         static byte[,] gen(byte rows,byte columns)
