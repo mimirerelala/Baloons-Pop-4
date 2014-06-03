@@ -189,7 +189,7 @@
         static void sortAndPrintChartFive(string[,] tableToSort)
         {
             
-            List<structOfRow> klasirane = new List<structOfRow>();
+            List<Row> klasirane = new List<Row>();
 
             for (int i = 0; i < 5; ++i)
             {
@@ -198,7 +198,7 @@
                     break; 
                 }
                 
-                klasirane.Add(new structOfRow(int.Parse(tableToSort[i, 0]),tableToSort[i,1]));
+                klasirane.Add(new Row(int.Parse(tableToSort[i, 0]),tableToSort[i,1]));
                
             }
             
@@ -206,7 +206,7 @@
             Console.WriteLine("---------TOP FIVE CHART-----------");
             for (int i = 0; i<klasirane.Count; ++i)
             {
-                structOfRow slot = klasirane[i];
+                Row slot = klasirane[i];
                 Console.WriteLine("{2}.   {0} with {1} moves.", slot.Name, slot.Value,i+1);
             }
             Console.WriteLine("----------------------------------");

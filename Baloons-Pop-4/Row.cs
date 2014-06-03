@@ -4,9 +4,9 @@
     using System.Linq;
     public struct Row : IComparable<Row>
     {
-
         public int Value;
         public string Name;
+        
         public Row(int value, string name)
         {
 
@@ -19,5 +19,4 @@
             return Value.CompareTo(other.Value);
         }
     }
-
 }
