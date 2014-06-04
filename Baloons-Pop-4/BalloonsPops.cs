@@ -159,13 +159,16 @@
 
             byte searchedTarget = matrixToModify[row, col];
             matrixToModify[row, col] = 0;
-            
+            ExecuteAllChecks(matrixToModify, row, col, searchedTarget);
+            return false;
+        }
+  
+        private static void ExecuteAllChecks(byte[,] matrixToModify, int row, int col, byte searchedTarget)
+        {
             CheckLeft(matrixToModify, row, col, searchedTarget);
             CheckRight(matrixToModify, row, col, searchedTarget);
             CheckUp(matrixToModify, row, col, searchedTarget);
             CheckDown(matrixToModify, row, col, searchedTarget);
-            
-            return false;
         }
 
         static bool IsWinner(byte[,] matrix)
