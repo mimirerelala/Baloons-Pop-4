@@ -66,17 +66,16 @@ namespace BaloonsPopsGame
 
             Console.WriteLine(gameField);
         }
-
-        static void CheckLeft(byte[,] matrix, int row, int col, int searchedItem)
+        
+        // I suggest we use the following two methods instead of the commented code below
+        private static void CheckCell(byte[,] matrix, int row, int col, int target)
         {
-            int newRow = row;
-            int newcol = col - 1;
             try
             {
-                if (matrix[newRow, newcol] == searchedItem)
+                if (matrix[row, col] == target)
                 {
-                    matrix[newRow, newcol] = 0;
-                    CheckLeft(matrix, newRow, newcol, searchedItem);
+                    matrix[row, col] = 0;
+                    CheckCell(matrix, row, col, target);
                 }
                 else
                 {
@@ -85,76 +84,114 @@ namespace BaloonsPopsGame
             }
             catch (IndexOutOfRangeException)
             {
-                return;
+                Console.Error.WriteLine("The cell you are trying to check is out of the gamefield!");
             }
         }
 
-        static void CheckRight(byte[,] matrix, int row, int col, int searchedItem)
+        private static void ExecuteAllChecks(byte[,] matrixToModify, int row, int col, byte target)
         {
-            int newRow = row;
-            int newcol = col + 1;
-            try
-            {
-                if (matrix[newRow, newcol] == searchedItem)
-                {
-                    matrix[newRow, newcol] = 0;
-                    CheckRight(matrix, newRow, newcol, searchedItem);
-                }
-                else
-                {
-                    return;
-                }
-            }
-            catch (IndexOutOfRangeException)
-            {
-                return;
-            }
+            CheckCell(matrixToModify, row + 1, col, target);
+            CheckCell(matrixToModify, row - 1, col, target);
+            CheckCell(matrixToModify, row, col + 1, target);
+            CheckCell(matrixToModify, row, col - 1, target);
         }
+        
+        //static void CheckLeft(byte[,] matrix, int row, int col, int searchedItem)
+        //{
+        //    int newRow = row;
+        //    int newcol = col - 1;
+        //    try
+        //    {
+        //        if (matrix[newRow, newcol] == searchedItem)
+        //        {
+        //            matrix[newRow, newcol] = 0;
+        //            CheckLeft(matrix, newRow, newcol, searchedItem);
+        //        }
+        //        else
+        //        {
+        //            return;
+        //        }
+        //    }
+        //    catch (IndexOutOfRangeException)
+        //    {
+        //        return;
+        //    }
+        //}
 
-        static void CheckUp(byte[,] matrix, int row, int col, int searchedItem)
-        {
-            int newRow = row + 1;
-            int newcol = col;
-            try
-            {
-                if (matrix[newRow, newcol] == searchedItem)
-                {
-                    matrix[newRow, newcol] = 0;
-                    CheckUp(matrix, newRow, newcol, searchedItem);
-                }
-                else
-                {
-                    return;
-                }
-            }
-            catch (IndexOutOfRangeException)
-            {
-                return;
-            }
-        }
+        //static void CheckRight(byte[,] matrix, int row, int col, int searchedItem)
+        //{
+        //    int newRow = row;
+        //    int newcol = col + 1;
+        //    try
+        //    {
+        //        if (matrix[newRow, newcol] == searchedItem)
+        //        {
+        //            matrix[newRow, newcol] = 0;
+        //            CheckRight(matrix, newRow, newcol, searchedItem);
+        //        }
+        //        else
+        //        {
+        //            return;
+        //        }
+        //    }
+        //    catch (IndexOutOfRangeException)
+        //    {
+        //        return;
+        //    }
+        //}
 
-        static void CheckDown(byte[,] matrix, int row, int col, int searchedItem)
-        {
-            int newRow = row - 1;
-            int newcol = col;
-            try
-            {
-                if (matrix[newRow, newcol] == searchedItem)
-                {
-                    matrix[newRow, newcol] = 0;
-                    CheckDown(matrix, newRow, newcol, searchedItem);
-                }
-                else
-                {
-                    return;
-                }
-            }
-            catch (IndexOutOfRangeException)
-            {
-                return;
-            }
-        }
+        //static void CheckUp(byte[,] matrix, int row, int col, int searchedItem)
+        //{
+        //    int newRow = row + 1;
+        //    int newcol = col;
+        //    try
+        //    {
+        //        if (matrix[newRow, newcol] == searchedItem)
+        //        {
+        //            matrix[newRow, newcol] = 0;
+        //            CheckUp(matrix, newRow, newcol, searchedItem);
+        //        }
+        //        else
+        //        {
+        //            return;
+        //        }
+        //    }
+        //    catch (IndexOutOfRangeException)
+        //    {
+        //        return;
+        //    }
+        //}
 
+        //static void CheckDown(byte[,] matrix, int row, int col, int searchedItem)
+        //{
+        //    int newRow = row - 1;
+        //    int newcol = col;
+        //    try
+        //    {
+        //        if (matrix[newRow, newcol] == searchedItem)
+        //        {
+        //            matrix[newRow, newcol] = 0;
+        //            CheckDown(matrix, newRow, newcol, searchedItem);
+        //        }
+        //        else
+        //        {
+        //            return;
+        //        }
+        //    }
+        //    catch (IndexOutOfRangeException)
+        //    {
+        //        return;
+        //    }
+        //}
+
+        //private static void ExecuteAllChecks(byte[,] matrixToModify, int row, int col, byte searchedTarget)
+        //{
+        //    CheckLeft(matrixToModify, row, col, searchedTarget);
+        //    CheckRight(matrixToModify, row, col, searchedTarget);
+        //    CheckUp(matrixToModify, row, col, searchedTarget);
+        //    CheckDown(matrixToModify, row, col, searchedTarget);
+        //}
+        
         static bool ModifyMatrix(byte[,] matrixToModify, int row, int col)
         {
             if (matrixToModify[row, col] == 0)
@@ -168,13 +205,7 @@ namespace BaloonsPopsGame
             return false;
         }
   
-        private static void ExecuteAllChecks(byte[,] matrixToModify, int row, int col, byte searchedTarget)
-        {
-            CheckLeft(matrixToModify, row, col, searchedTarget);
-            CheckRight(matrixToModify, row, col, searchedTarget);
-            CheckUp(matrixToModify, row, col, searchedTarget);
-            CheckDown(matrixToModify, row, col, searchedTarget);
-        }
+       
 
         static bool IsWinner(byte[,] matrix)
         {
