@@ -1,4 +1,4 @@
-﻿namespace BaloonsPopsGame
+namespace BaloonsPopsGame
 {
     using System;
     using System.Collections.Generic;
@@ -25,44 +25,46 @@
 
         private static void PrintMatrix(byte[,] matrix)
         {
-            Console.Write("    ");
-            for (byte col = 0; col < matrix.GetLongLength(1); col++)
+            var gameField = new StringBuilder();
+            var fieldWidth = matrix.GetLength(1);
+            var fieldHeight = matrix.GetLength(0);
+            
+            gameField.Append("    ");
+
+            for (byte col = 0; col < fieldWidth; col++)
             {
-                Console.Write(col + " ");
+                gameField.Append(col + " ");
             }
 
-            Console.Write("\n   ");
-            for (byte col = 0; col < matrix.GetLongLength(1) * 2 + 1; col++)
-            {
-                Console.Write("-");
-            }
+            gameField.AppendLine();
+            gameField.Append("   ");
+            gameField.Append('-', fieldWidth * 2 + 1);
+            gameField.AppendLine();
 
-            Console.WriteLine();
-            for (byte i = 0; i < matrix.GetLongLength(0); i++)
+            for (byte row = 0; row < fieldHeight; row++)
             {
-                Console.Write(i + " | ");
-                for (byte j = 0; j < matrix.GetLongLength(1); j++)
+                gameField.Append(row + " | ");
+
+                for (byte col = 0; col < fieldWidth; col++)
                 {
-                    if (matrix[i, j] == 0)
+                    if (matrix[row, col] == 0)
                     {
-                        Console.Write("  ");
-                        continue;
+                        gameField.Append("  ");
                     }
-
-                    Console.Write(matrix[i, j] + " ");
+                    else
+                    {
+                        gameField.Append(matrix[row, col] + " ");
+                    }
                 }
 
-                Console.Write("| ");
-                Console.WriteLine();
+                gameField.Append("| ");
+                gameField.AppendLine();
             }
 
-            Console.Write("   ");
-            for (byte col = 0; col < matrix.GetLongLength(1) * 2 + 1; col++)
-            {
-                Console.Write("-");
-            }
+            gameField.Append("   ");
+            gameField.Append('-', fieldWidth * 2 + 1);
 
-            Console.WriteLine();
+            Console.WriteLine(gameField);
         }
 
         static void CheckLeft(byte[,] matrix, int row, int col, int searchedItem)
