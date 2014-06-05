@@ -2,25 +2,28 @@
 {
     using System;
     using System.Collections.Generic;
-
-    class BalloonsPops
+    using System.Text;
+    
+    public class BalloonsPops
     {
-        static byte[,] GenerateMatrix(byte rows, byte cols)
+        private static byte[,] GenerateMatrix(byte rows, byte cols)
         {
-            byte[,] temp = new byte[rows, cols];
-            Random randNumber = new Random();
+            var matrix = new byte[rows, cols];
+            var generator = new Random();
+            
             for (byte row = 0; row < rows; row++)
             {
                 for (byte col = 0; col < cols; col++)
                 {
-                    byte tempByte = (byte)randNumber.Next(1, 5);
-                    temp[row, col] = tempByte;
+                    var currentCellValue = (byte)generator.Next(1, 5);
+                    matrix[row, col] = currentCellValue;
                 }
             }
-            return temp;
+            
+            return matrix;
         }
 
-        static void PrintMatrix(byte[,] matrix)
+        private static void PrintMatrix(byte[,] matrix)
         {
             Console.Write("    ");
             for (byte col = 0; col < matrix.GetLongLength(1); col++)
