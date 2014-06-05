@@ -1,17 +1,16 @@
 namespace BaloonsPopsGame
 {
-    public struct Row : IComparable<Row>
+    public class Row : IComparable<Row>
     {
-        public Row(int value, string name) 
-            : this()
+        public Row(string name, int value) 
         {
-            this.Value = value;
             this.Name = name;
+            this.Value = value;
         }
         
-        public int Value { get; set; }
-        
         public string Name { get; set; }
+        
+        public int Value { get; set; }
         
         public int CompareTo(Row other)
         {
