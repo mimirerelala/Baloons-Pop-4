@@ -217,7 +217,7 @@ namespace BaloonsPopsGame
                     break;
                 }
 
-                klasirane.Add(new Row(int.Parse(tableToSort[i, 0]), tableToSort[i, 1]));
+                klasirane.Add(new Row(tableToSort[i, 1], int.Parse(tableToSort[i, 0])));
             }
 
             klasirane.Sort();
