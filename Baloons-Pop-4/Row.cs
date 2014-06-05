@@ -1,22 +1,21 @@
-﻿namespace BaloonsPopsGame
+namespace BaloonsPopsGame
 {
-    using System;
-    using System.Linq;
     public struct Row : IComparable<Row>
     {
-        public int Value;
-        public string Name;
-        
-        public Row(int value, string name)
+        public Row(int value, string name) 
+            : this()
         {
-
-            Value = value;
-            Name = name;
+            this.Value = value;
+            this.Name = name;
         }
-
+        
+        public int Value { get; set; }
+        
+        public string Name { get; set; }
+        
         public int CompareTo(Row other)
         {
-            return Value.CompareTo(other.Value);
+            return this.Value.CompareTo(other.Value);
         }
     }
 }
