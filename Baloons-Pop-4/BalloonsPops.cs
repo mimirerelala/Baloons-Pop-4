@@ -8,10 +8,15 @@ namespace BaloonsPopsGame
     
     public class BalloonsPops
     {
-
-
         static void Main(string[] args)
         {
+            //TODO: Check if the game logic is implemented as per GameRules.pdf
+            //TODO: Implement 2 structural and two behavioral design patters
+            //TODO: Implement colors for the numbers in the console
+            //TODO: Implement the local score board
+            //TODO: Check if the game is compliant with ALL requirements in the GameRules.pdf
+            //TODO: Compile a project documentation
+
             string[,] topFive = new string[5, 2];
             GameFieldsFactory gameFieldFactory = new ClassicalGameFieldFactory();
             GameField gameFieldUtility = gameFieldFactory.Create();
