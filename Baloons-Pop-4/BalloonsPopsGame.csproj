@@ -44,7 +44,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BalloonsPops.cs" />
+    <Compile Include="Utilities\ClassicalGameEngine.cs" />
+    <Compile Include="Factories\ClassicalGameEngineFactory.cs" />
+    <Compile Include="Utilities\ClassicalGameField.cs" />
+    <Compile Include="Factories\ClassicalGameFieldFactory.cs" />
+    <Compile Include="Utilities\GameEngine.cs" />
+    <Compile Include="Factories\GameEnginesFactory.cs" />
+    <Compile Include="Utilities\GameField.cs" />
+    <Compile Include="Factories\GameFieldsFactory.cs" />
     <Compile Include="Row.cs" />
+    <Compile Include="Utilities\HighScores.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
