@@ -23,11 +23,11 @@ namespace BaloonsPopsGame
             return gameField;
         }
 
-        private static void PrintGameField(byte[,] matrix)
+        private static void PrintGameField(byte[,] field)
         {
             var gameField = new StringBuilder();
-            var fieldWidth = matrix.GetLength(1);
-            var fieldHeight = matrix.GetLength(0);
+            var fieldWidth = field.GetLength(1);
+            var fieldHeight = field.GetLength(0);
             
             gameField.Append("    ");
 
@@ -47,13 +47,13 @@ namespace BaloonsPopsGame
 
                 for (byte col = 0; col < fieldWidth; col++)
                 {
-                    if (matrix[row, col] == 0)
+                    if (field[row, col] == 0)
                     {
                         gameField.Append("  ");
                     }
                     else
                     {
-                        gameField.Append(matrix[row, col] + " ");
+                        gameField.Append(field[row, col] + " ");
                     }
                 }
 
