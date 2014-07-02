@@ -102,28 +102,28 @@
                         userRow = int.Parse(commandInput[0].ToString());
                         if (userRow > 4)
                         {
-                            Console.WriteLine("Wrong input ! Try Again ! ");
+                            Console.WriteLine("Wrong input! Please try again!");
                             return;
                         }
 
                         userCol = int.Parse(commandInput[2].ToString());
                         if (gameEngine.ModifyGameField(gameField, userRow, userCol))
                         {
-                            Console.WriteLine("cannot pop missing ballon!");
+                            Console.WriteLine("Cannot pop a missing ballon!");
                             return;
                         }
 
                         userMoves++;
                         if (gameEngine.IsWinner(gameField))
                         {
-                            Console.WriteLine("Gratz ! You completed it in {0} moves.", userMoves);
+                            Console.WriteLine("Congratulations ! You have completed the game in {0} moves!", userMoves);
                             if (HighScores.IsPlayerInChart(topFive, userMoves))
                             {
                                 HighScores.SortAndPrintChart(topFive);
                             }
                             else
                             {
-                                Console.WriteLine("I am sorry you are not skillful enough for TopFive chart!");
+                                Console.WriteLine("I am sorry, but you are not skillful enough for the TopFive chart!");
                             }
                             gameField = gameFieldUtility.Generate(5, 10);
                             userMoves = 0;
@@ -134,7 +134,7 @@
                     }
                     else
                     {
-                        Console.WriteLine("Wrong input ! Try Again ! ");
+                        Console.WriteLine("Wrong input! Please try again!");
                         break;
                     }
             }

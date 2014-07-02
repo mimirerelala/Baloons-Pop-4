@@ -28,7 +28,7 @@ namespace BaloonsPopsGame
 
             while (commandInput != "EXIT")
             {
-                Console.WriteLine("Enter a cell (row and col): ");
+                Console.Write("Enter a cell (row and col): ");
 
                 commandInput = Console.ReadLine();
                 commandInput = commandInput.ToUpper().Trim();
