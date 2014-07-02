@@ -1,20 +1,55 @@
 ﻿namespace BaloonsPopsGame.Utilities
 {
+    //STRUCTURAL DESIGN PATTERN : FACADE
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
+    using BaloonsPopsGame.Factories;
 
-    public abstract class GameEngine
+    public static class GameEngine
     {
-        public abstract void CheckCell(byte[,] gameField, int row, int col, int target);
+        private static string[,] topFive;
 
-        public abstract void ExecuteAllChecks(byte[,] gameField, int row, int col, byte target);
+        private static GameFieldsFactory gameFieldFactory;
+        private static GameField gameFieldUtility;
+        private static byte[,] gameField;
 
-        public abstract bool ModifyGameField(byte[,] gameField, int row, int col);
+        private static GameLogicsFactory gameLogicFactory;
+        private static GameLogic gameLogic;
 
-        public abstract bool IsWinner(byte[,] gameField);
+        private static string currentCommand;
+        private static int userMovesCount;
 
-        public abstract void ProcessUserInput(ref int userMoves, ref string commandInput, ref byte[,] gameField, ref GameField gameFieldUtility, ref string[,] topFive, ref GameEngine gameEngine);
+        public static void InitializeGame()
+        {
+            GameEngine.topFive = new string[5, 2];
+            GameEngine.gameFieldFactory = new ClassicalGameFieldFactory();
+            GameEngine.gameFieldUtility = gameFieldFactory.Create();
+            
+            GameEngine.gameLogicFactory = new ClassicalGameLogicFactory();
+            GameEngine.gameLogic = gameLogicFactory.Create();
+            
+            GameEngine.gameField = gameFieldUtility.Generate(5, 10);
+
+            GameEngine.currentCommand = null;
+            GameEngine.userMovesCount = 0;
+        }
+
+        public static void PrintGameField() 
+        {
+            gameFieldUtility.Print(gameField);
+        }
+
+        public static void PlayGame() 
+        {
+            while (GameEngine.currentCommand != "EXIT")
+            {
+                Console.Write("Enter a cell (row and col): ");
+
+                GameEngine.currentCommand = Console.ReadLine();
+                GameEngine.currentCommand = currentCommand.ToUpper().Trim();
+
+                GameEngine.gameLogic.ProcessUserInput(ref GameEngine.userMovesCount, ref GameEngine.currentCommand, ref GameEngine.gameField, ref GameEngine.gameFieldUtility, ref GameEngine.topFive, ref GameEngine.gameLogic);
+            }
+        }
     }
 }

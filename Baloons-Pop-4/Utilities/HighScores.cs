@@ -7,7 +7,7 @@
 
     public static class HighScores
     {
-        public static void SortAndPrintChart(string[,] tableToSort)
+        public static void SortAndPrint(string[,] tableToSort)
         {
             List<Row> highScores = new List<Row>();
 

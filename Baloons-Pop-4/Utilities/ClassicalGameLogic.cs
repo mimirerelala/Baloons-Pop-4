@@ -4,11 +4,11 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-    class ClassicalGameEngine : GameEngine
+    class ClassicalGameLogic : GameLogic
     {
-        private static ClassicalGameEngine instance;
+        private static ClassicalGameLogic instance;
 
-        protected ClassicalGameEngine() { }
+        protected ClassicalGameLogic() { }
         public override void CheckCell(byte[,] gameField, int row, int col, int target)
         {
             try
@@ -80,7 +80,7 @@
             return isWinner;
         }
 
-        public override void ProcessUserInput(ref int userMoves, ref string commandInput, ref byte[,] gameField, ref GameField gameFieldUtility, ref string[,] topFive, ref GameEngine gameEngine)
+        public override void ProcessUserInput(ref int userMoves, ref string commandInput, ref byte[,] gameField, ref GameField gameFieldUtility, ref string[,] topFive, ref GameLogic gameEngine)
         {
             switch (commandInput)
             {
@@ -90,7 +90,7 @@
                     userMoves = 0;
                     break;
                 case "TOP":
-                    HighScores.SortAndPrintChart(topFive);
+                    HighScores.SortAndPrint(topFive);
                     break;
                 case "EXIT":
                     break;
@@ -119,7 +119,7 @@
                             Console.WriteLine("Congratulations ! You have completed the game in {0} moves!", userMoves);
                             if (HighScores.IsPlayerInChart(topFive, userMoves))
                             {
-                                HighScores.SortAndPrintChart(topFive);
+                                HighScores.SortAndPrint(topFive);
                             }
                             else
                             {
@@ -139,11 +139,11 @@
                     }
             }
         }
-        public static ClassicalGameEngine Instance()
+        public static ClassicalGameLogic Instance()
         {
             if (instance == null)
             {
-                instance = new ClassicalGameEngine();
+                instance = new ClassicalGameLogic();
             }
 
             return instance;

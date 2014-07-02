@@ -19,29 +19,11 @@ namespace BaloonsPopsGame
             //TODO: Implement Unit Tests
             //TODO: Check if the game is compliant with ALL requirements in the GameRules.pdf and Assignment.pdf
 
-            string[,] topFive = new string[5, 2];
-            GameFieldsFactory gameFieldFactory = new ClassicalGameFieldFactory();
-            GameField gameFieldUtility = gameFieldFactory.Create();
+            GameEngine.InitializeGame();
 
-            GameEnginesFactory gameEngineFactory = new ClassicalGameEngineFactory();
-            GameEngine gameEngine = gameEngineFactory.Create();
+            GameEngine.PrintGameField();
 
-            byte[,] gameField = gameFieldUtility.Generate(5, 10);
-
-            gameFieldUtility.Print(gameField);
-
-            string commandInput = null;
-            int userMoves = 0;
-
-            while (commandInput != "EXIT")
-            {
-                Console.Write("Enter a cell (row and col): ");
-
-                commandInput = Console.ReadLine();
-                commandInput = commandInput.ToUpper().Trim();
-
-                gameEngine.ProcessUserInput(ref userMoves, ref commandInput, ref gameField, ref gameFieldUtility, ref topFive, ref gameEngine);
-            }
+            GameEngine.PlayGame();
 
             Console.WriteLine("Good Bye!");
         }
