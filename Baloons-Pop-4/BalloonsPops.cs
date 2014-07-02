@@ -14,8 +14,10 @@ namespace BaloonsPopsGame
             //TODO: Implement 2 structural and two behavioral design patters
             //TODO: Implement colors for the numbers in the console
             //TODO: Implement the local score board
-            //TODO: Check if the game is compliant with ALL requirements in the GameRules.pdf
             //TODO: Compile a project documentation
+            //TODO: Follow the DRY and SOLID principles
+            //TODO: Implement Unit Tests
+            //TODO: Check if the game is compliant with ALL requirements in the GameRules.pdf and Assignment.pdf
 
             string[,] topFive = new string[5, 2];
             GameFieldsFactory gameFieldFactory = new ClassicalGameFieldFactory();
