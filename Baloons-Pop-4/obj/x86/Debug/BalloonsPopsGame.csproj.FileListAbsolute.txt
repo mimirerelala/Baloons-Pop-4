@@ -1,0 +1,5 @@
+D:\Telerik\КПК\Teamwork\Baloons-Pop-4\bin\Debug\BaloonsPopsGame.exe
+D:\Telerik\КПК\Teamwork\Baloons-Pop-4\bin\Debug\BaloonsPopsGame.pdb
+D:\Telerik\КПК\Teamwork\Baloons-Pop-4\obj\x86\Debug\BalloonsPopsGame.csprojResolveAssemblyReference.cache
+D:\Telerik\КПК\Teamwork\Baloons-Pop-4\obj\x86\Debug\BaloonsPopsGame.exe
+D:\Telerik\КПК\Teamwork\Baloons-Pop-4\obj\x86\Debug\BaloonsPopsGame.pdb
