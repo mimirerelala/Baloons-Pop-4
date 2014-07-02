@@ -49,10 +49,12 @@
     <Compile Include="Utilities\ClassicalGameField.cs" />
     <Compile Include="Factories\ClassicalGameFieldFactory.cs" />
     <Compile Include="Utilities\GameEngine.cs" />
+    <Compile Include="Utilities\GameFieldCell.cs" />
+    <Compile Include="Factories\GameFieldCellsFlyweightFactory.cs" />
     <Compile Include="Utilities\GameLogic.cs" />
-    <Compile Include="Factories\GameLogicsFactory.cs" />
+    <Compile Include="Factories\GameLogicFactory.cs" />
     <Compile Include="Utilities\GameField.cs" />
-    <Compile Include="Factories\GameFieldsFactory.cs" />
+    <Compile Include="Factories\GameFieldFactory.cs" />
     <Compile Include="Row.cs" />
     <Compile Include="Utilities\HighScores.cs" />
   </ItemGroup>

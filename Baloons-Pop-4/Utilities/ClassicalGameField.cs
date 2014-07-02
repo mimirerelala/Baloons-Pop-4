@@ -1,9 +1,8 @@
 ﻿namespace BaloonsPopsGame.Utilities
 {
+    //CREATIONAL DESIGN PATTERN : SINGLETON
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
+    using Factories;
 
     public class ClassicalGameField : GameField
     {
@@ -40,46 +39,45 @@
         {
             Console.Clear();
 
-            var gameField = new StringBuilder();
             var fieldWidth = field.GetLength(1);
             var fieldHeight = field.GetLength(0);
 
-            gameField.Append("    ");
+            Console.Write("    ");
 
             for (byte col = 0; col < fieldWidth; col++)
             {
-                gameField.Append(col + " ");
+                Console.Write(" " + col + " ");
             }
 
-            gameField.AppendLine();
-            gameField.Append("   ");
-            gameField.Append('-', fieldWidth * 2 + 1);
-            gameField.AppendLine();
+            Console.WriteLine();
+            Console.Write("   ");
+            Console.Write(new String('-', fieldWidth * 3 + 1));
+            Console.WriteLine();
 
             for (byte row = 0; row < fieldHeight; row++)
             {
-                gameField.Append(row + " | ");
+                Console.Write(row + " | ");
 
                 for (byte col = 0; col < fieldWidth; col++)
                 {
                     if (field[row, col] == 0)
                     {
-                        gameField.Append("  ");
+                        Console.Write("   ");
                     }
                     else
                     {
-                        gameField.Append(field[row, col] + " ");
+                        GameFieldCellsFlyweightFactory.GetCellByValue(field[row, col]).Draw();
                     }
                 }
 
-                gameField.Append("| ");
-                gameField.AppendLine();
+                Console.Write("| ");
+                Console.WriteLine();
             }
 
-            gameField.Append("   ");
-            gameField.Append('-', fieldWidth * 2 + 1);
+            Console.Write("   ");
+            Console.Write(new String('-', fieldWidth * 3 + 1));
 
-            Console.WriteLine(gameField);
+            Console.WriteLine();
         }            
     }
 }

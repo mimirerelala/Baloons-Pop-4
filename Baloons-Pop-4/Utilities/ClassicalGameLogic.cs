@@ -1,5 +1,6 @@
 ﻿namespace BaloonsPopsGame.Utilities
 {
+    //CREATIONAL DESIGN PATTERN : SINGLETON
     using System;
     using System.Collections.Generic;
     using System.Linq;

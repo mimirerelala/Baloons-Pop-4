@@ -9,11 +9,11 @@
     {
         private static string[,] topFive;
 
-        private static GameFieldsFactory gameFieldFactory;
+        private static GameFieldFactory gameFieldFactory;
         private static GameField gameFieldUtility;
         private static byte[,] gameField;
 
-        private static GameLogicsFactory gameLogicFactory;
+        private static GameLogicFactory gameLogicFactory;
         private static GameLogic gameLogic;
 
         private static string currentCommand;
@@ -50,6 +50,11 @@
 
                 GameEngine.gameLogic.ProcessUserInput(ref GameEngine.userMovesCount, ref GameEngine.currentCommand, ref GameEngine.gameField, ref GameEngine.gameFieldUtility, ref GameEngine.topFive, ref GameEngine.gameLogic);
             }
+        }
+
+        internal static void ExitGame()
+        {
+            Console.WriteLine("Good-bye");
         }
     }
 }
