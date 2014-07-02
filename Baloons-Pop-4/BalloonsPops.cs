@@ -6,9 +6,9 @@ namespace BaloonsPopsGame
     
     public class BalloonsPops
     {
-        private static byte[,] GenerateMatrix(byte rows, byte cols)
+        private static byte[,] GenerateGameField(byte rows, byte cols)
         {
-            var matrix = new byte[rows, cols];
+            var gameField = new byte[rows, cols];
             var generator = new Random();
             
             for (byte row = 0; row < rows; row++)
@@ -16,14 +16,14 @@ namespace BaloonsPopsGame
                 for (byte col = 0; col < cols; col++)
                 {
                     var currentCellValue = (byte)generator.Next(1, 5);
-                    matrix[row, col] = currentCellValue;
+                    gameField[row, col] = currentCellValue;
                 }
             }
             
-            return matrix;
+            return gameField;
         }
 
-        private static void PrintMatrix(byte[,] matrix)
+        private static void PrintGameField(byte[,] matrix)
         {
             var gameField = new StringBuilder();
             var fieldWidth = matrix.GetLength(1);
@@ -67,15 +67,14 @@ namespace BaloonsPopsGame
             Console.WriteLine(gameField);
         }
         
-        // I suggest we use the following two methods instead of the commented code below
-        private static void CheckCell(byte[,] matrix, int row, int col, int target)
+        private static void CheckCell(byte[,] gameField, int row, int col, int target)
         {
             try
             {
-                if (matrix[row, col] == target)
+                if (gameField[row, col] == target)
                 {
-                    matrix[row, col] = 0;
-                    CheckCell(matrix, row, col, target);
+                    gameField[row, col] = 0;
+                    CheckCell(gameField, row, col, target);
                 }
                 else
                 {
@@ -88,149 +87,52 @@ namespace BaloonsPopsGame
             }
         }
 
-        private static void ExecuteAllChecks(byte[,] matrixToModify, int row, int col, byte target)
+        private static void ExecuteAllChecks(byte[,] gameField, int row, int col, byte target)
         {
-            CheckCell(matrixToModify, row + 1, col, target);
-            CheckCell(matrixToModify, row - 1, col, target);
-            CheckCell(matrixToModify, row, col + 1, target);
-            CheckCell(matrixToModify, row, col - 1, target);
+            CheckCell(gameField, row + 1, col, target);
+            CheckCell(gameField, row - 1, col, target);
+            CheckCell(gameField, row, col + 1, target);
+            CheckCell(gameField, row, col - 1, target);
         }
         
-        //static void CheckLeft(byte[,] matrix, int row, int col, int searchedItem)
-        //{
-        //    int newRow = row;
-        //    int newcol = col - 1;
-        //    try
-        //    {
-        //        if (matrix[newRow, newcol] == searchedItem)
-        //        {
-        //            matrix[newRow, newcol] = 0;
-        //            CheckLeft(matrix, newRow, newcol, searchedItem);
-        //        }
-        //        else
-        //        {
-        //            return;
-        //        }
-        //    }
-        //    catch (IndexOutOfRangeException)
-        //    {
-        //        return;
-        //    }
-        //}
-
-        //static void CheckRight(byte[,] matrix, int row, int col, int searchedItem)
-        //{
-        //    int newRow = row;
-        //    int newcol = col + 1;
-        //    try
-        //    {
-        //        if (matrix[newRow, newcol] == searchedItem)
-        //        {
-        //            matrix[newRow, newcol] = 0;
-        //            CheckRight(matrix, newRow, newcol, searchedItem);
-        //        }
-        //        else
-        //        {
-        //            return;
-        //        }
-        //    }
-        //    catch (IndexOutOfRangeException)
-        //    {
-        //        return;
-        //    }
-        //}
-
-        //static void CheckUp(byte[,] matrix, int row, int col, int searchedItem)
-        //{
-        //    int newRow = row + 1;
-        //    int newcol = col;
-        //    try
-        //    {
-        //        if (matrix[newRow, newcol] == searchedItem)
-        //        {
-        //            matrix[newRow, newcol] = 0;
-        //            CheckUp(matrix, newRow, newcol, searchedItem);
-        //        }
-        //        else
-        //        {
-        //            return;
-        //        }
-        //    }
-        //    catch (IndexOutOfRangeException)
-        //    {
-        //        return;
-        //    }
-        //}
-
-        //static void CheckDown(byte[,] matrix, int row, int col, int searchedItem)
-        //{
-        //    int newRow = row - 1;
-        //    int newcol = col;
-        //    try
-        //    {
-        //        if (matrix[newRow, newcol] == searchedItem)
-        //        {
-        //            matrix[newRow, newcol] = 0;
-        //            CheckDown(matrix, newRow, newcol, searchedItem);
-        //        }
-        //        else
-        //        {
-        //            return;
-        //        }
-        //    }
-        //    catch (IndexOutOfRangeException)
-        //    {
-        //        return;
-        //    }
-        //}
-
-        //private static void ExecuteAllChecks(byte[,] matrixToModify, int row, int col, byte searchedTarget)
-        //{
-        //    CheckLeft(matrixToModify, row, col, searchedTarget);
-        //    CheckRight(matrixToModify, row, col, searchedTarget);
-        //    CheckUp(matrixToModify, row, col, searchedTarget);
-        //    CheckDown(matrixToModify, row, col, searchedTarget);
-        //}
-        
-        static bool ModifyMatrix(byte[,] matrixToModify, int row, int col)
+        static bool ModifyGameField(byte[,] gameField, int row, int col)
         {
-            if (matrixToModify[row, col] == 0)
+            if (gameField[row, col] == 0)
             {
                 return true;
             }
 
-            byte searchedTarget = matrixToModify[row, col];
-            matrixToModify[row, col] = 0;
-            ExecuteAllChecks(matrixToModify, row, col, searchedTarget);
+            byte searchedTarget = gameField[row, col];
+            gameField[row, col] = 0;
+            ExecuteAllChecks(gameField, row, col, searchedTarget);
             return false;
-        }
-  
+        }  
        
 
-        static bool IsWinner(byte[,] matrix)
+        static bool IsWinner(byte[,] gameField)
         {
             bool isWinner = true;
             Stack<byte> stek = new Stack<byte>();
-            int colLenght = matrix.GetLength(0);
-            for (int j = 0; j < matrix.GetLength(1); j++)
+            int colLenght = gameField.GetLength(0);
+            for (int j = 0; j < gameField.GetLength(1); j++)
             {
                 for (int i = 0; i < colLenght; i++)
                 {
-                    if (matrix[i, j] != 0)
+                    if (gameField[i, j] != 0)
                     {
                         isWinner = false;
-                        stek.Push(matrix[i, j]);
+                        stek.Push(gameField[i, j]);
                     }
                 }
                 for (int k = colLenght - 1; (k >= 0); k--)
                 {
                     try
                     {
-                        matrix[k, j] = stek.Pop();
+                        gameField[k, j] = stek.Pop();
                     }
                     catch (Exception)
                     {
-                        matrix[k, j] = 0;
+                        gameField[k, j] = 0;
                     }
                 }
             }
@@ -303,9 +205,9 @@ namespace BaloonsPopsGame
         static void Main(string[] args)
         {
             string[,] topFive = new string[5, 2];
-            byte[,] matrix = GenerateMatrix(5, 10);
+            byte[,] gameField = GenerateGameField(5, 10);
 
-            PrintMatrix(matrix);
+            PrintGameField(gameField);
             string commandInput = null;
             int userMoves = 0;
             while (commandInput != "EXIT")
@@ -317,8 +219,8 @@ namespace BaloonsPopsGame
                 switch (commandInput)
                 {
                     case "RESTART":
-                        matrix = GenerateMatrix(5, 10);
-                        PrintMatrix(matrix);
+                        gameField = GenerateGameField(5, 10);
+                        PrintGameField(gameField);
                         userMoves = 0;
                         break;
                     case "TOP":
@@ -336,14 +238,14 @@ namespace BaloonsPopsGame
                             }
 
                             userCol = int.Parse(commandInput[2].ToString());
-                            if (ModifyMatrix(matrix, userRow, userCol))
+                            if (ModifyGameField(gameField, userRow, userCol))
                             {
                                 Console.WriteLine("cannot pop missing ballon!");
                                 continue;
                             }
 
                             userMoves++;
-                            if (IsWinner(matrix))
+                            if (IsWinner(gameField))
                             {
                                 Console.WriteLine("Gratz ! You completed it in {0} moves.", userMoves);
                                 if (IsPlayerInChart(topFive, userMoves))
@@ -354,11 +256,11 @@ namespace BaloonsPopsGame
                                 {
                                     Console.WriteLine("I am sorry you are not skillful enough for TopFive chart!");
                                 }
-                                matrix = GenerateMatrix(5, 10);
+                                gameField = GenerateGameField(5, 10);
                                 userMoves = 0;
                             }
 
-                            PrintMatrix(matrix);
+                            PrintGameField(gameField);
                             break;
                         }
                         else
