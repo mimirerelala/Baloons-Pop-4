@@ -38,6 +38,8 @@
         }
         public override void Print(byte[,] field)
         {
+            Console.Clear();
+
             var gameField = new StringBuilder();
             var fieldWidth = field.GetLength(1);
             var fieldHeight = field.GetLength(0);
