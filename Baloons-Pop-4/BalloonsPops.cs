@@ -1,10 +1,7 @@
 namespace BaloonsPopsGame
 {
     using System;
-    using System.Collections.Generic;
-    using System.Text;
     using Utilities;
-    using Factories;
     
     public class BalloonsPops
     {

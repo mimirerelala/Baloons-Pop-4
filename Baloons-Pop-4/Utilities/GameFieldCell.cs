@@ -4,9 +4,9 @@
 
     public class GameFieldCell
     {
-        private int value;
-        private ConsoleColor foregroundColor;
-        private ConsoleColor backgroundColor;
+        private readonly int value;
+        private readonly ConsoleColor foregroundColor;
+        private readonly ConsoleColor backgroundColor;
 
         public GameFieldCell(int value, ConsoleColor foregroundColor, ConsoleColor backgroundColor)
         {

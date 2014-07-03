@@ -4,7 +4,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
     class ClassicalGameLogic : GameLogic
     {
         private static ClassicalGameLogic instance;
@@ -97,7 +96,8 @@
                     break;
                 default:
                     //TODO: Remove the magic numbers '0' and '9' with gameField width and height
-                    if ((commandInput.Length == 3) && (commandInput[0] >= '0' && commandInput[0] <= '9') && (commandInput[2] >= '0' && commandInput[2] <= '9') && (commandInput[1] == ' ' || commandInput[1] == '.' || commandInput[1] == ','))
+                    if ((commandInput.Length == 3) && (commandInput[0] >= '0' && commandInput[0] <= '9') && (commandInput[2] >= '0' 
+                        && commandInput[2] <= '9') && (commandInput[1] == ' ' || commandInput[1] == '.' || commandInput[1] == ','))
                     {
                         int userRow, userCol;
                         userRow = int.Parse(commandInput[0].ToString());
