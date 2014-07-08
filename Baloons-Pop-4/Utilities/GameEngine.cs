@@ -1,6 +1,6 @@
 ﻿namespace BaloonsPopsGame.Utilities
 {
-    //STRUCTURAL DESIGN PATTERN : FACADE
+    ////STRUCTURAL DESIGN PATTERN : FACADE
     using System;
     using System.Linq;
     using BaloonsPopsGame.Factories;

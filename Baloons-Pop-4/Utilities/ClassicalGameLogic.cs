@@ -1,14 +1,28 @@
 ﻿namespace BaloonsPopsGame.Utilities
 {
-    //CREATIONAL DESIGN PATTERN : SINGLETON
+    ////CREATIONAL DESIGN PATTERN : SINGLETON
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    class ClassicalGameLogic : GameLogic
+
+    public class ClassicalGameLogic : GameLogic
     {
         private static ClassicalGameLogic instance;
 
-        protected ClassicalGameLogic() { }
+        protected ClassicalGameLogic() 
+        {
+        }
+
+        public static ClassicalGameLogic Instance()
+        {
+            if (instance == null)
+            {
+                instance = new ClassicalGameLogic();
+            }
+
+            return instance;
+        }
+
         public override void CheckCell(byte[,] gameField, int row, int col, int target)
         {
             try
@@ -16,7 +30,7 @@
                 if (gameField[row, col] == target)
                 {
                     gameField[row, col] = 0;
-                    CheckCell(gameField, row, col, target);
+                    this.CheckCell(gameField, row, col, target);
                 }
                 else
                 {
@@ -31,10 +45,10 @@
 
         public override void ExecuteAllChecks(byte[,] gameField, int row, int col, byte target)
         {
-            CheckCell(gameField, row + 1, col, target);
-            CheckCell(gameField, row - 1, col, target);
-            CheckCell(gameField, row, col + 1, target);
-            CheckCell(gameField, row, col - 1, target);
+            this.CheckCell(gameField, row + 1, col, target);
+            this.CheckCell(gameField, row - 1, col, target);
+            this.CheckCell(gameField, row, col + 1, target);
+            this.CheckCell(gameField, row, col - 1, target);
         }
 
         public override bool ModifyGameField(byte[,] gameField, int row, int col)
@@ -46,7 +60,7 @@
 
             byte searchedTarget = gameField[row, col];
             gameField[row, col] = 0;
-            ExecuteAllChecks(gameField, row, col, searchedTarget);
+            this.ExecuteAllChecks(gameField, row, col, searchedTarget);
             return false;
         }
 
@@ -65,7 +79,8 @@
                         stek.Push(gameField[i, j]);
                     }
                 }
-                for (int k = colLenght - 1; (k >= 0); k--)
+
+                for (int k = colLenght - 1; k >= 0; k--)
                 {
                     try
                     {
@@ -77,6 +92,7 @@
                     }
                 }
             }
+
             return isWinner;
         }
 
@@ -95,7 +111,7 @@
                 case "EXIT":
                     break;
                 default:
-                    //TODO: Remove the magic numbers '0' and '9' with gameField width and height
+                    ////TODO: Remove the magic numbers '0' and '9' with gameField width and height
                     if ((commandInput.Length == 3) && (commandInput[0] >= '0' && commandInput[0] <= '9') && (commandInput[2] >= '0' 
                         && commandInput[2] <= '9') && (commandInput[1] == ' ' || commandInput[1] == '.' || commandInput[1] == ','))
                     {
@@ -126,6 +142,7 @@
                             {
                                 Console.WriteLine("I am sorry, but you are not skillful enough for the TopFive chart!");
                             }
+
                             gameField = gameFieldUtility.Generate(5, 10);
                             userMoves = 0;
                         }
@@ -139,15 +156,6 @@
                         break;
                     }
             }
-        }
-        public static ClassicalGameLogic Instance()
-        {
-            if (instance == null)
-            {
-                instance = new ClassicalGameLogic();
-            }
-
-            return instance;
         }
     }
 }

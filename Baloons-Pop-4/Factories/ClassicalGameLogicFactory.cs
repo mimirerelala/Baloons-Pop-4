@@ -1,8 +1,9 @@
 ﻿namespace BaloonsPopsGame.Factories
 {
-    //CREATIONAL DESIGN PATTERN : FACTORY METHOD
+    ////CREATIONAL DESIGN PATTERN : FACTORY METHOD
     using Utilities;
-    class ClassicalGameLogicFactory : GameLogicFactory
+
+    public class ClassicalGameLogicFactory : GameLogicFactory
     {
         public override GameLogic Create()
         {

@@ -1,6 +1,6 @@
 ﻿namespace BaloonsPopsGame.Utilities
 {
-    //CREATIONAL DESIGN PATTERN : SINGLETON
+    ////CREATIONAL DESIGN PATTERN : SINGLETON
     using System;
     using Factories;
 
@@ -8,7 +8,9 @@
     {
         private static ClassicalGameField instance;
 
-        protected ClassicalGameField() { }
+        protected ClassicalGameField() 
+        {
+        }
 
         public static ClassicalGameField Instance()
         {
@@ -19,6 +21,7 @@
 
             return instance;
         }
+
         public override byte[,] Generate(byte rows, byte cols)
         {
             var gameField = new byte[rows, cols];
@@ -35,12 +38,14 @@
 
             return gameField;
         }
+
         public override void Print(byte[,] field)
         {
             Console.Clear();
 
             var fieldWidth = field.GetLength(1);
             var fieldHeight = field.GetLength(0);
+            var horizontalBoreder = new String('-', (fieldWidth * 3) + 1);
 
             Console.Write("    ");
 
@@ -51,7 +56,7 @@
 
             Console.WriteLine();
             Console.Write("   ");
-            Console.Write(new String('-', fieldWidth * 3 + 1));
+            Console.Write(horizontalBoreder);
             Console.WriteLine();
 
             for (byte row = 0; row < fieldHeight; row++)
@@ -75,7 +80,7 @@
             }
 
             Console.Write("   ");
-            Console.Write(new String('-', fieldWidth * 3 + 1));
+            Console.Write(horizontalBoreder);
 
             Console.WriteLine();
         }            

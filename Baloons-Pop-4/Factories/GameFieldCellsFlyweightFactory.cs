@@ -1,13 +1,13 @@
 ﻿namespace BaloonsPopsGame.Factories
 {
-    //STRUCTURAL DESIGN PATTERN : FLYWEIGHT
+    ////STRUCTURAL DESIGN PATTERN : FLYWEIGHT
     using System;
     using System.Collections.Generic;
     using Utilities;
 
     public static class GameFieldCellsFlyweightFactory
     {
-        private static Dictionary<int, GameFieldCell> flywieghtCells = new Dictionary<int,GameFieldCell>();
+        private static Dictionary<int, GameFieldCell> flywieghtCells = new Dictionary<int, GameFieldCell>();
 
         static GameFieldCellsFlyweightFactory()
         {

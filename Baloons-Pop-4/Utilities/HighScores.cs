@@ -29,6 +29,7 @@
                 Row slot = highScores[i];
                 Console.WriteLine("{2}.   {0} with {1} moves.", slot.Name, slot.Value, i + 1);
             }
+
             Console.WriteLine("----------------------------------");
         }
 
@@ -49,6 +50,7 @@
                     break;
                 }
             }
+
             if (skilled == false)
             {
                 for (int i = 0; i < 5; i++)
@@ -60,6 +62,7 @@
                     }
                 }
             }
+
             if (points < worstMoves && skilled == false)
             {
                 Console.WriteLine("Type in your name.");
@@ -68,6 +71,7 @@
                 chart[worstMoveschartPosition, 1] = commandInputUserName;
                 skilled = true;
             }
+
             return skilled;
         }
     }

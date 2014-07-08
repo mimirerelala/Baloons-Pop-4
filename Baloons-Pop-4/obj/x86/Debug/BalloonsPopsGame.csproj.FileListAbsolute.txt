@@ -8,3 +8,8 @@ F:\Telerik\HQC\!!!!!!!TeamWork\Baloons-Pop-4\obj\x86\Debug\BaloonsPopsGame.pdb
 F:\Telerik\HQC\!!!!!!!TeamWork\Baloons-Pop-4\bin\Debug\BaloonsPopsGame.exe
 F:\Telerik\HQC\!!!!!!!TeamWork\Baloons-Pop-4\bin\Debug\BaloonsPopsGame.pdb
 F:\Telerik\HQC\!!!!!!!TeamWork\Baloons-Pop-4\obj\x86\Debug\BalloonsPopsGame.csprojResolveAssemblyReference.cache
+C:\Users\Georgi\Desktop\###Telerik Academy###\High Quality Programing Code\Team work\Team Work\Baloons-Pop-4\obj\x86\Debug\BaloonsPopsGame.exe
+C:\Users\Georgi\Desktop\###Telerik Academy###\High Quality Programing Code\Team work\Team Work\Baloons-Pop-4\obj\x86\Debug\BaloonsPopsGame.pdb
+C:\Users\Georgi\Desktop\###Telerik Academy###\High Quality Programing Code\Team work\Team Work\Baloons-Pop-4\bin\Debug\BaloonsPopsGame.exe
+C:\Users\Georgi\Desktop\###Telerik Academy###\High Quality Programing Code\Team work\Team Work\Baloons-Pop-4\bin\Debug\BaloonsPopsGame.pdb
+C:\Users\Georgi\Desktop\###Telerik Academy###\High Quality Programing Code\Team work\Team Work\Baloons-Pop-4\obj\x86\Debug\BalloonsPopsGame.csprojResolveAssemblyReference.cache
