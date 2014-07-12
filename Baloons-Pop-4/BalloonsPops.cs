@@ -3,9 +3,15 @@ namespace BaloonsPopsGame
     using System;
     using Utilities;
     
+    /// <summary>
+    /// The class containing the "Main" method of the program
+    /// </summary>
     public class BalloonsPops
     {
-        public static void Main(string[] args)
+        /// <summary>
+        /// The main method of the program.
+        /// </summary>
+        public static void Main()
         {
             ////TODO: Check if the game logic is implemented as per GameRules.pdf
             ////TODO: Implement the local score board WITH MEMENTO pattern

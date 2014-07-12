@@ -5,14 +5,27 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>
+    /// he ClassicalGameLogic class
+    /// </summary>
     public class ClassicalGameLogic : GameLogic
     {
+        /// <summary>
+        /// Keeps an instance of the <see cref="ClassicalGameLogic"/> class
+        /// </summary>
         private static ClassicalGameLogic instance;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ClassicalGameLogic"/> class.
+        /// </summary>
         protected ClassicalGameLogic() 
         {
         }
 
+        /// <summary>
+        /// Static method for implementing "Singleton"design pattern
+        /// </summary>
+        /// <returns>Only instance of the <see cref="ClassicalGameLogic"/> class</returns>
         public static ClassicalGameLogic Instance()
         {
             if (instance == null)
