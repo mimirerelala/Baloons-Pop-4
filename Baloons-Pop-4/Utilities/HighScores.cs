@@ -1,11 +1,21 @@
-﻿namespace BaloonsPopsGame.Utilities
+﻿// <copyright file="HighScores.cs" company="Team Baloons-Pop-4">
+// Open source
+// </copyright>
+namespace BaloonsPopsGame.Utilities
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>
+    /// The HighScores class
+    /// </summary>
     public static class HighScores
     {
+        /// <summary>
+        /// Sorts and prints the top five chart
+        /// </summary>
+        /// <param name="tableToSort">Chart to be sorted and printed</param>
         public static void SortAndPrint(string[,] tableToSort)
         {
             List<Row> highScores = new List<Row>();
@@ -33,6 +43,12 @@
             Console.WriteLine("----------------------------------");
         }
 
+        /// <summary>
+        /// Checks if the current player has good enough score to go in the top five chart
+        /// </summary>
+        /// <param name="chart">Two dimensional array representing the top five chart</param>
+        /// <param name="points">Number of point the current player has</param>
+        /// <returns>Boolean variable</returns>
         public static bool IsPlayerInChart(string[,] chart, int points)
         {
             bool skilled = false;

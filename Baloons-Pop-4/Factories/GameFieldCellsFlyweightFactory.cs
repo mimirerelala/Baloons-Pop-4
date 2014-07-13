@@ -1,14 +1,26 @@
-﻿namespace BaloonsPopsGame.Factories
+﻿// <copyright file="GameFieldCellsFlyweightFactory.cs" company="Team Baloons-Pop-4">
+// Open source
+// </copyright>
+namespace BaloonsPopsGame.Factories
 {
     ////STRUCTURAL DESIGN PATTERN : FLYWEIGHT
     using System;
     using System.Collections.Generic;
     using Utilities;
 
+    /// <summary>
+    /// The GameFieldCellsFlyweightFactory class
+    /// </summary>
     public static class GameFieldCellsFlyweightFactory
     {
+        /// <summary>
+        /// Dictionary containing information about the colors of all cell with different values
+        /// </summary>
         private static Dictionary<int, GameFieldCell> flywieghtCells = new Dictionary<int, GameFieldCell>();
 
+        /// <summary>
+        /// Initializes static members of the <see cref="GameFieldCellsFlyweightFactory"/> class.
+        /// </summary>
         static GameFieldCellsFlyweightFactory()
         {
             GameFieldCellsFlyweightFactory.flywieghtCells.Add(1, new GameFieldCell(1, ConsoleColor.White, ConsoleColor.Red));
@@ -17,6 +29,11 @@
             GameFieldCellsFlyweightFactory.flywieghtCells.Add(4, new GameFieldCell(4, ConsoleColor.Black, ConsoleColor.Yellow));
         }
 
+        /// <summary>
+        /// Returns a <see cref="GameFieldCell"/> by it's value
+        /// </summary>
+        /// <param name="value">Value of the searched cell</param>
+        /// <returns>A <see cref="GameFieldCell"/> by it's value</returns>
         public static GameFieldCell GetCellByValue(int value)
         {
             return GameFieldCellsFlyweightFactory.flywieghtCells[value];

@@ -1,4 +1,7 @@
-﻿namespace BaloonsPopsGame.Utilities
+﻿// <copyright file="ClassicalGameField.cs" company="Team Baloons-Pop-4">
+// Open source
+// </copyright>
+namespace BaloonsPopsGame.Utilities
 {
     ////CREATIONAL DESIGN PATTERN : SINGLETON
     using System;
@@ -68,7 +71,7 @@
 
             var fieldWidth = field.GetLength(1);
             var fieldHeight = field.GetLength(0);
-            var horizontalBoreder = new String('-', (fieldWidth * 3) + 1);
+            var horizontalBoreder = new string('-', (fieldWidth * 3) + 1);
 
             Console.Write("    ");
 

@@ -1,4 +1,7 @@
-﻿namespace BaloonsPopsGame.Factories
+﻿// <copyright file="ClassicalGameFieldFactory.cs" company="Team Baloons-Pop-4">
+// Open source
+// </copyright>
+namespace BaloonsPopsGame.Factories
 {
     ////CREATIONAL DESIGN PATTERN : FACTORY METHOD
     using Utilities;
