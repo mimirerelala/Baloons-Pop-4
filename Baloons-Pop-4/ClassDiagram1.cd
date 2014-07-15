@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BaloonsPopsGame.Factories.ClassicalGameFieldFactory" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\ClassicalGameFieldFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaloonsPopsGame.Factories.ClassicalGameLogicFactory" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\ClassicalGameLogicFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaloonsPopsGame.Factories.GameFieldCellsFlyweightFactory" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\GameFieldCellsFlyweightFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaloonsPopsGame.Factories.GameFieldFactory" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\GameFieldFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaloonsPopsGame.Factories.GameLogicFactory" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\GameLogicFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaloonsPopsGame.Utilities.ClassicalGameField" Collapsed="true">
+    <Position X="3.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAEAEAAA=</HashCode>
+      <FileName>Utilities\ClassicalGameField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaloonsPopsGame.Utilities.ClassicalGameLogic" Collapsed="true">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAIAAAAAAAAAAAAAAAABAAAAAQECIAAAAAAA=</HashCode>
+      <FileName>Utilities\ClassicalGameLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaloonsPopsGame.Utilities.GameEngine" Collapsed="true">
+    <Position X="6" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAUEABAAAAQAAAAIgAAgCBAAIAAAAAAIA=</HashCode>
+      <FileName>Utilities\GameEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaloonsPopsGame.Utilities.GameField" Collapsed="true">
+    <Position X="3.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAEAAA=</HashCode>
+      <FileName>Utilities\GameField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaloonsPopsGame.Utilities.GameFieldCell" Collapsed="true">
+    <Position X="7.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAgAAAAAAAAAAAAAAACgAAAAAAAAAAAA=</HashCode>
+      <FileName>Utilities\GameFieldCell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaloonsPopsGame.Utilities.GameLogic" Collapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAECIAAAAAAA=</HashCode>
+      <FileName>Utilities\GameLogic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaloonsPopsGame.Utilities.HighScores" Collapsed="true">
+    <Position X="6" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utilities\HighScores.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

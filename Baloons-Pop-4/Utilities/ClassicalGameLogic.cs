@@ -67,7 +67,7 @@ namespace BaloonsPopsGame.Utilities
         public override bool IsWinner(byte[,] gameField)
         {
             bool isWinner = true;
-            Stack<byte> stek = new Stack<byte>();
+            Stack<byte> gamefieldStack = new Stack<byte>();
             int colLenght = gameField.GetLength(0);
             for (int j = 0; j < gameField.GetLength(1); j++)
             {
@@ -76,7 +76,7 @@ namespace BaloonsPopsGame.Utilities
                     if (gameField[i, j] != 0)
                     {
                         isWinner = false;
-                        stek.Push(gameField[i, j]);
+                        gamefieldStack.Push(gameField[i, j]);
                     }
                 }
 
@@ -84,7 +84,7 @@ namespace BaloonsPopsGame.Utilities
                 {
                     try
                     {
-                        gameField[k, j] = stek.Pop();
+                        gameField[k, j] = gamefieldStack.Pop();
                     }
                     catch (Exception)
                     {

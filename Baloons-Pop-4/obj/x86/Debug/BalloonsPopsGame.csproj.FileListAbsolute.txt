@@ -14,3 +14,8 @@ C:\Users\Georgi\Desktop\###Telerik Academy###\High Quality Programing Code\Team 
 C:\Users\Georgi\Desktop\###Telerik Academy###\High Quality Programing Code\Team work\Team Work\Baloons-Pop-4\bin\Debug\BaloonsPopsGame.XML
 C:\Users\Georgi\Desktop\###Telerik Academy###\High Quality Programing Code\Team work\Team Work\Baloons-Pop-4\bin\Debug\BaloonsPopsGame.exe
 C:\Users\Georgi\Desktop\###Telerik Academy###\High Quality Programing Code\Team work\Team Work\Baloons-Pop-4\obj\x86\Debug\BaloonsPopsGame.exe
+C:\Users\Varbanoff\Desktop\balooon\Baloons-Pop-4\obj\x86\Debug\BaloonsPopsGame.exe
+C:\Users\Varbanoff\Desktop\balooon\Baloons-Pop-4\obj\x86\Debug\BaloonsPopsGame.pdb
+C:\Users\Varbanoff\Desktop\balooon\Baloons-Pop-4\bin\Debug\BaloonsPopsGame.XML
+C:\Users\Varbanoff\Desktop\balooon\Baloons-Pop-4\bin\Debug\BaloonsPopsGame.exe
+C:\Users\Varbanoff\Desktop\balooon\Baloons-Pop-4\bin\Debug\BaloonsPopsGame.pdb
