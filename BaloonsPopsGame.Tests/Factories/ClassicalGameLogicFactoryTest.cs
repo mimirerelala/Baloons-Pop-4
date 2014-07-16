@@ -1,8 +1,8 @@
 ﻿namespace BaloonsPopsGame.Tests
 {
     using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using BaloonsPopsGame;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class ClassicalGameLogicFactoryTest

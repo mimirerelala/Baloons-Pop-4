@@ -67,11 +67,11 @@ namespace BaloonsPopsGame.Utilities
         /// <param name="field">An array representing the game field</param>
         public override void Print(byte[,] field)
         {
-            Console.Clear();
+            //Console.Clear();
 
             var fieldWidth = field.GetLength(1);
             var fieldHeight = field.GetLength(0);
-            var horizontalBoreder = new string('-', (fieldWidth * 3) + 1);
+            var horizontalBorder = new string('-', (fieldWidth * 3) + 1);
 
             Console.Write("    ");
 
@@ -82,7 +82,7 @@ namespace BaloonsPopsGame.Utilities
 
             Console.WriteLine();
             Console.Write("   ");
-            Console.Write(horizontalBoreder);
+            Console.Write(horizontalBorder);
             Console.WriteLine();
 
             for (byte row = 0; row < fieldHeight; row++)
@@ -106,7 +106,7 @@ namespace BaloonsPopsGame.Utilities
             }
 
             Console.Write("   ");
-            Console.Write(horizontalBoreder);
+            Console.Write(horizontalBorder);
 
             Console.WriteLine();
         }            

@@ -1,16 +1,16 @@
 ﻿namespace BaloonsPopsGame.Tests
 {
     using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using BaloonsPopsGame;
-    using BaloonsPopsGame.Utilities;
     using BaloonsPopsGame.Factories;
+    using BaloonsPopsGame.Utilities;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class GameFieldCellsFlyweightFactoryTest
     {
         [TestMethod]
-        public void GetCellByValueDoesNotReturnNull()
+        public void GetCellByValueDoesNotReturnNullWithValuesOneToFour()
         {
             GameFieldCell[] fieldCells = new GameFieldCell[4];
 
