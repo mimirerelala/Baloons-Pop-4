@@ -40,7 +40,7 @@ namespace BaloonsPopsGame.Utilities
         }
 
         /// <summary>
-        /// Executes method ExecuteAllCellsChecks and returns "true" if the selected element in the array is 0 
+        /// Executes method CheckCells and returns "false" if the selected element in the array is 0, else return true. 
         /// </summary>
         /// <param name="gameField">Two dimensional array representing the game field</param>
         /// <param name="row">Row in the array</param>
@@ -50,13 +50,12 @@ namespace BaloonsPopsGame.Utilities
         {
             if (gameField[row, col] == 0)
             {
-                return true;
+                return false;
             }
 
             byte searchedTarget = gameField[row, col];
-            gameField[row, col] = 0;
-            this.ExecuteAllCellsChecks(gameField, row, col, searchedTarget);
-            return false;
+            this.CheckCells(gameField, row, col, searchedTarget);
+            return true;
         }
 
         /// <summary>
@@ -156,7 +155,7 @@ namespace BaloonsPopsGame.Utilities
                         }
 
                         userCol = int.Parse(commandInput[2].ToString());
-                        if (gameEngine.ModifyGameField(gameField, userRow, userCol))
+                        if (!gameEngine.ModifyGameField(gameField, userRow, userCol))
                         {
                             Console.WriteLine("Cannot pop a missing ballon!");
                             return;
@@ -193,45 +192,32 @@ namespace BaloonsPopsGame.Utilities
         }
 
         /// <summary>
-        /// Checks if the selected element in the array is a specific searched number.
+        /// Checks if an array element is equal to a target: if so, set it to zero and call again with neighbours .
         /// </summary>
         /// <param name="gameField">Two dimensional array representing the game field</param>
         /// <param name="row">Row in the array</param>
         /// <param name="col">Column in the array</param>
         /// <param name="target">The value of the element on position "[row, col]" in the array</param>
-        private void CheckCell(byte[,] gameField, int row, int col, int target)
+        private void CheckCells(byte[,] gameField, int row, int col, int target)
         {
-            try
+            if (row < 0 || row >= gameField.GetLength(0))
             {
-                if (gameField[row, col] == target)
-                {
-                    gameField[row, col] = 0;
-                    this.CheckCell(gameField, row, col, target);
-                }
-                else
-                {
-                    return;
-                }
+                return;
             }
-            catch (IndexOutOfRangeException)
-            {
-                Console.Error.WriteLine("The cell you are trying to check is out of the gamefield!");
-            }
-        }
 
-        /// <summary>
-        /// Checks all neighbors of the selected element in the array are a specific searched number
-        /// </summary>
-        /// <param name="gameField">Two dimensional array representing the game field</param>
-        /// <param name="row">Row in the array</param>
-        /// <param name="col">Column in the array</param>
-        /// <param name="target">The value of the element on position "[row, col]" in the array</param>
-        private void ExecuteAllCellsChecks(byte[,] gameField, int row, int col, byte target)
-        {
-            this.CheckCell(gameField, row + 1, col, target);
-            this.CheckCell(gameField, row - 1, col, target);
-            this.CheckCell(gameField, row, col + 1, target);
-            this.CheckCell(gameField, row, col - 1, target);
+            if (col  < 0 || col >= gameField.GetLength(1))
+            {
+                return;
+            }
+
+            if (gameField[row, col] == target)
+            {
+                gameField[row, col] = 0;
+                this.CheckCells(gameField, row + 1, col, target);
+                this.CheckCells(gameField, row - 1, col, target);
+                this.CheckCells(gameField, row, col + 1, target);
+                this.CheckCells(gameField, row, col - 1, target);
+            }
         }
     }
 }
