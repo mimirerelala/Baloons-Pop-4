@@ -28,6 +28,12 @@ namespace BaloonsPopsGame.Utilities
         public abstract bool IsWinner(byte[,] gameField);
 
         /// <summary>
+        /// Makes the cells fall down if there are empty cells below
+        /// </summary>
+        /// <param name="gameField"></param>
+        public abstract void FallDown(byte[,] gameField);
+
+        /// <summary>
         /// Handles all user input
         /// </summary>
         /// <param name="userMoves">Count of the user's moves</param>

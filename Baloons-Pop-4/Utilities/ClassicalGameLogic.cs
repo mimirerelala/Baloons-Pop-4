@@ -9,7 +9,7 @@ namespace BaloonsPopsGame.Utilities
     using System.Linq;
 
     /// <summary>
-    /// he ClassicalGameLogic class
+    /// The ClassicalGameLogic class
     /// </summary>
     public class ClassicalGameLogic : GameLogic
     {
@@ -21,7 +21,7 @@ namespace BaloonsPopsGame.Utilities
         /// <summary>
         /// Initializes a new instance of the <see cref="ClassicalGameLogic"/> class.
         /// </summary>
-        protected ClassicalGameLogic() 
+        protected ClassicalGameLogic()
         {
         }
 
@@ -67,33 +67,56 @@ namespace BaloonsPopsGame.Utilities
         public override bool IsWinner(byte[,] gameField)
         {
             bool isWinner = true;
-            Stack<byte> gamefieldStack = new Stack<byte>();
-            int colLenght = gameField.GetLength(0);
-            for (int j = 0; j < gameField.GetLength(1); j++)
+            int rows = gameField.GetLength(0);
+            int cols = gameField.GetLength(1);
+
+            for (int col = 0; col < cols; col++)
             {
-                for (int i = 0; i < colLenght; i++)
+                for (int row = 0; row < rows; row++)
                 {
-                    if (gameField[i, j] != 0)
+                    if (gameField[row, col] != 0)
                     {
                         isWinner = false;
-                        gamefieldStack.Push(gameField[i, j]);
-                    }
-                }
-
-                for (int k = colLenght - 1; k >= 0; k--)
-                {
-                    try
-                    {
-                        gameField[k, j] = gamefieldStack.Pop();
-                    }
-                    catch (Exception)
-                    {
-                        gameField[k, j] = 0;
+                        return isWinner;
                     }
                 }
             }
 
             return isWinner;
+        }
+
+        /// <summary>
+        /// Makes the cells fall down if there are empty cells below
+        /// </summary>
+        /// <param name="gameField">The game field of cells</param>
+        public override void FallDown(byte[,] gameField)
+        {
+            int rows = gameField.GetLength(0);
+            int cols = gameField.GetLength(1);
+            var colStack = new Stack<byte>();
+
+            for (int col = 0; col < cols; col++)
+            {
+                for (int row = 0; row < rows; row++)
+                {
+                    if (gameField[row, col] != 0)
+                    {
+                        colStack.Push(gameField[row, col]);
+                    }
+                }
+
+                for (int k = rows - 1; k >= 0; k--)
+                {
+                    if (colStack.Count > 0)
+                    {
+                        gameField[k, col] = colStack.Pop();
+                    }
+                    else
+                    {
+                        gameField[k, col] = 0;
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -121,7 +144,7 @@ namespace BaloonsPopsGame.Utilities
                     break;
                 default:
                     ////TODO: Remove the magic numbers '0' and '9' with gameField width and height
-                    if ((commandInput.Length == 3) && (commandInput[0] >= '0' && commandInput[0] <= '9') && (commandInput[2] >= '0' 
+                    if ((commandInput.Length == 3) && (commandInput[0] >= '0' && commandInput[0] <= '9') && (commandInput[2] >= '0'
                         && commandInput[2] <= '9') && (commandInput[1] == ' ' || commandInput[1] == '.' || commandInput[1] == ','))
                     {
                         int userRow, userCol;
@@ -140,6 +163,8 @@ namespace BaloonsPopsGame.Utilities
                         }
 
                         userMoves++;
+                        gameEngine.FallDown(gameField);
+
                         if (gameEngine.IsWinner(gameField))
                         {
                             Console.WriteLine("Congratulations ! You have completed the game in {0} moves!", userMoves);

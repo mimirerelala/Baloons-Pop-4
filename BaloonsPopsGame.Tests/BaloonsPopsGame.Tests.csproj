@@ -50,6 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Utilities\ClassicalGameLogicTest.cs" />
     <Compile Include="Factories\ClassicalGameFieldFactoryTest.cs" />
     <Compile Include="Factories\GameFieldCellsFlyweightFactoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
