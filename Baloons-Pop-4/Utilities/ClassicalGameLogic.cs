@@ -129,6 +129,8 @@ namespace BaloonsPopsGame.Utilities
         /// <param name="gameEngine">Current game logic</param>
         public override void ProcessUserInput(ref int userMoves, ref string commandInput, ref byte[,] gameField, ref GameField gameFieldUtility, ref string[,] topFive, ref GameLogic gameEngine)
         {
+           commandInput = commandInput.ToUpper().Trim();
+
             switch (commandInput)
             {
                 case "RESTART":

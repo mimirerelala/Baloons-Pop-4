@@ -87,10 +87,8 @@ namespace BaloonsPopsGame.Utilities
             while (GameEngine.currentCommand != "EXIT")
             {
                 Console.Write("Enter a cell (row and col): ");
-
                 GameEngine.currentCommand = Console.ReadLine();
-                GameEngine.currentCommand = currentCommand.ToUpper().Trim();
-
+                GameEngine.currentCommand = GameEngine.currentCommand.ToUpper().Trim();
                 GameEngine.gameLogic.ProcessUserInput(ref GameEngine.userMovesCount, ref GameEngine.currentCommand, ref GameEngine.gameField, ref GameEngine.gameFieldUtility, ref GameEngine.topFive, ref GameEngine.gameLogic);
             }
         }

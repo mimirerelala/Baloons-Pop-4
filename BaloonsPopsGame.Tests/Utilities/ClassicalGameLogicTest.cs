@@ -4,6 +4,7 @@
     using BaloonsPopsGame.Utilities;
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using BaloonsPopsGame.Tests.Utilities;
 
     [TestClass]
     public class ClassicalGameLogicTest
@@ -80,7 +81,7 @@
                 { 0, 1, 1, 1 },
                 { 1, 1, 1, 1 },
             };
-            
+
             var inputDown = new byte[size, size] 
             {
                 { 0, 0, 0, 0 },
@@ -139,7 +140,7 @@
             {
                 for (int col = 0; col < size; col++)
                 {
-                    Assert.AreEqual(expectedInputMixed[row,col], inputMixed[row,col]);
+                    Assert.AreEqual(expectedInputMixed[row, col], inputMixed[row, col]);
                     Assert.AreEqual(expectedInputFull[row, col], inputFull[row, col]);
                     Assert.AreEqual(expectedInputEmpty[row, col], inputEmpty[row, col]);
                     Assert.AreEqual(expectedInputDown[row, col], inputDown[row, col]);
@@ -217,6 +218,27 @@
             }
         }
 
+        [TestMethod]
+        public void ProcessInputRestartsGameFieldAndMoves()
+        {
+            int userMoves = 1;
+            string restart = "RESTART";
+            var field = new byte[4, 4] 
+            {
+                { 0, 1, 2, 3 },
+                { 1, 1, 2, 3 },
+                { 1, 1, 2, 3 },
+                { 1, 1, 2, 3 },
+            };
+            GameField fieldUtility = ClassicalGameField.Instance();
+            string[,] topFive = new string[0, 0];
+            GameLogic gameEngine = ClassicalGameLogic.Instance();
+
+            var expectedMoves = 0;
+
+            gameEngine.ProcessUserInput(ref userMoves, ref restart, ref field, ref fieldUtility, ref topFive, ref gameEngine);
+            Assert.AreEqual(expectedMoves, userMoves);
+        }
 
 
 
