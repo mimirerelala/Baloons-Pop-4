@@ -142,52 +142,49 @@ namespace BaloonsPopsGame.Utilities
                 case "EXIT":
                     break;
                 default:
-                    ////TODO: Remove the magic numbers '0' and '9' with gameField width and height
-                    if ((commandInput.Length == 3) && (commandInput[0] >= '0' && commandInput[0] <= '9') && (commandInput[2] >= '0'
-                        && commandInput[2] <= '9') && (commandInput[1] == ' ' || commandInput[1] == '.' || commandInput[1] == ','))
+                    int userRow = 0;
+                    int userCol = 0;
+                    bool isValidCommandLength = commandInput.Length == 3;
+                    bool isValidRow = isValidCommandLength && int.TryParse(commandInput[0].ToString(), out userRow) && userRow < gameField.GetLength(0) && userRow >= 0;
+                    bool isValidCol = isValidCommandLength && int.TryParse(commandInput[2].ToString(), out userCol) && userCol < gameField.GetLength(1) && userCol >= 0;
+                    string validSeparators = " .,";
+
+                    if (!(isValidCommandLength && isValidRow && isValidCol && validSeparators.Contains(commandInput[1])))
                     {
-                        int userRow, userCol;
-                        userRow = int.Parse(commandInput[0].ToString());
-                        if (userRow > 4)
+                        Console.WriteLine("Wrong input! Please try again!");
+                        return;
+                    }
+
+                    bool modified = gameEngine.ModifyGameField(gameField, userRow, userCol);
+                    if (!modified)
+                    {
+                        Console.WriteLine("Cannot pop a missing ballon!");
+                        return;
+                    }
+
+                    if (gameEngine.IsWinner(gameField))
+                    {
+                        Console.WriteLine("Congratulations ! You have completed the game in {0} moves!", userMoves);
+                        if (HighScores.IsPlayerInChart(topFive, userMoves))
                         {
-                            Console.WriteLine("Wrong input! Please try again!");
-                            return;
+                            HighScores.SortAndPrint(topFive);
+                        }
+                        else
+                        {
+                            Console.WriteLine("I am sorry, but you are not skillful enough for the TopFive chart!");
                         }
 
-                        userCol = int.Parse(commandInput[2].ToString());
-                        if (!gameEngine.ModifyGameField(gameField, userRow, userCol))
-                        {
-                            Console.WriteLine("Cannot pop a missing ballon!");
-                            return;
-                        }
-
-                        userMoves++;
-                        gameEngine.FallDown(gameField);
-
-                        if (gameEngine.IsWinner(gameField))
-                        {
-                            Console.WriteLine("Congratulations ! You have completed the game in {0} moves!", userMoves);
-                            if (HighScores.IsPlayerInChart(topFive, userMoves))
-                            {
-                                HighScores.SortAndPrint(topFive);
-                            }
-                            else
-                            {
-                                Console.WriteLine("I am sorry, but you are not skillful enough for the TopFive chart!");
-                            }
-
-                            gameField = gameFieldUtility.Generate(5, 10);
-                            userMoves = 0;
-                        }
-
-                        gameFieldUtility.Print(gameField);
-                        break;
+                        gameField = gameFieldUtility.Generate(5, 10);
+                        userMoves = 0;
                     }
                     else
                     {
-                        Console.WriteLine("Wrong input! Please try again!");
-                        break;
+                        userMoves++;
+                        gameEngine.FallDown(gameField);
                     }
+
+                    gameFieldUtility.Print(gameField);
+                    break;
             }
         }
 
@@ -197,7 +194,7 @@ namespace BaloonsPopsGame.Utilities
         /// <param name="gameField">Two dimensional array representing the game field</param>
         /// <param name="row">Row in the array</param>
         /// <param name="col">Column in the array</param>
-        /// <param name="target">The value of the element on position "[row, col]" in the array</param>
+        /// <param name="target">The value searched for</param>
         private void CheckCells(byte[,] gameField, int row, int col, int target)
         {
             if (row < 0 || row >= gameField.GetLength(0))
@@ -205,7 +202,7 @@ namespace BaloonsPopsGame.Utilities
                 return;
             }
 
-            if (col  < 0 || col >= gameField.GetLength(1))
+            if (col < 0 || col >= gameField.GetLength(1))
             {
                 return;
             }

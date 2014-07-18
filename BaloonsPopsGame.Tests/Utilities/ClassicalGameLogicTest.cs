@@ -147,6 +147,75 @@
             }
         }
 
+        [TestMethod]
+        public void ModifyGameFieldLogicWorksWithFullCell()
+        {
+            const int size = 8;
+
+            var input = new byte[size, size] 
+            {
+                { 1, 2, 2, 2, 2, 2, 2, 1 },
+                { 2, 1, 2, 2, 2, 2, 2, 1 },
+                { 2, 1, 1, 1, 1, 1, 1, 1 },
+                { 1, 2, 1, 2, 2, 1, 2, 2 },
+                { 2, 2, 2, 1, 2, 1, 2, 2 },
+                { 1, 2, 2, 1, 1, 1, 2, 2 },
+                { 2, 1, 1, 1, 2, 2, 1, 2 },
+                { 1, 1, 2, 1, 1, 1, 2, 2 },
+            };
+
+            var expected = new byte[size, size] 
+            {
+                { 1, 2, 2, 2, 2, 2, 2, 0 },
+                { 2, 0, 2, 2, 2, 2, 2, 0 },
+                { 2, 0, 0, 0, 0, 0, 0, 0 },
+                { 1, 2, 0, 2, 2, 0, 2, 2 },
+                { 2, 2, 2, 0, 2, 0, 2, 2 },
+                { 1, 2, 2, 0, 0, 0, 2, 2 },
+                { 2, 0, 0, 0, 2, 2, 1, 2 },
+                { 0, 0, 2, 0, 0, 0, 2, 2 },
+            };
+
+            var instance = ClassicalGameLogic.Instance();
+            var modified = instance.ModifyGameField(input, 1, 1);
+            Assert.AreEqual(true, modified);
+            for (int row = 0; row < size; row++)
+            {
+                for (int col = 0; col < size; col++)
+                {
+                    Assert.AreEqual(expected[row, col], input[row, col]);
+                }
+            }
+        }
+
+        [TestMethod]
+        public void ModifyGameFieldLogicWorksWithEmptyCell()
+        {
+            const int size = 2;
+
+            var input = new byte[size, size] 
+            {
+                { 0, 1},
+                { 1, 1},
+            };
+
+            var expected = new byte[size, size] 
+            {
+                { 0, 1},
+                { 1, 1},
+            };
+
+            var instance = ClassicalGameLogic.Instance();
+            var modified = instance.ModifyGameField(input, 0, 0);
+            Assert.AreEqual(false, modified);
+            for (int row = 0; row < size; row++)
+            {
+                for (int col = 0; col < size; col++)
+                {
+                    Assert.AreEqual(expected[row, col], input[row, col]);
+                }
+            }
+        }
 
 
 
