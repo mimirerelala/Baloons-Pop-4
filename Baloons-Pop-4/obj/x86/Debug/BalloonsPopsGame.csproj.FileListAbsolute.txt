@@ -19,3 +19,9 @@ C:\Users\Varbanoff\Desktop\balooon\Baloons-Pop-4\obj\x86\Debug\BaloonsPopsGame.p
 C:\Users\Varbanoff\Desktop\balooon\Baloons-Pop-4\bin\Debug\BaloonsPopsGame.XML
 C:\Users\Varbanoff\Desktop\balooon\Baloons-Pop-4\bin\Debug\BaloonsPopsGame.exe
 C:\Users\Varbanoff\Desktop\balooon\Baloons-Pop-4\bin\Debug\BaloonsPopsGame.pdb
+C:\Users\Miroslav\Source\Repos\Baloons-Pop-4\Baloons-Pop-4\obj\x86\Debug\BaloonsPopsGame.exe
+C:\Users\Miroslav\Source\Repos\Baloons-Pop-4\Baloons-Pop-4\obj\x86\Debug\BaloonsPopsGame.pdb
+C:\Users\Miroslav\Source\Repos\Baloons-Pop-4\Baloons-Pop-4\bin\Debug\BaloonsPopsGame.XML
+C:\Users\Miroslav\Source\Repos\Baloons-Pop-4\Baloons-Pop-4\bin\Debug\BaloonsPopsGame.exe
+C:\Users\Miroslav\Source\Repos\Baloons-Pop-4\Baloons-Pop-4\bin\Debug\BaloonsPopsGame.pdb
+C:\Users\Miroslav\Source\Repos\Baloons-Pop-4\Baloons-Pop-4\obj\x86\Debug\BalloonsPopsGame.csprojResolveAssemblyReference.cache
