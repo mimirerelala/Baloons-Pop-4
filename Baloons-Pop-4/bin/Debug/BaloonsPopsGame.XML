@@ -1,0 +1,387 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BaloonsPopsGame</name>
+    </assembly>
+    <members>
+        <member name="T:BaloonsPopsGame.BalloonsPops">
+            <summary>
+            The class containing the "Main" method of the program
+            </summary>
+        </member>
+        <member name="M:BaloonsPopsGame.BalloonsPops.Main">
+            <summary>
+            The main method of the program.
+            </summary>
+        </member>
+        <member name="T:BaloonsPopsGame.Utilities.ClassicalGameLogic">
+            <summary>
+            The ClassicalGameLogic class
+            </summary>
+        </member>
+        <member name="T:BaloonsPopsGame.Utilities.GameLogic">
+            <summary>
+            The abstract class GameLogic
+            </summary>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.GameLogic.ModifyGameField(System.Byte[0:,0:],System.Int32,System.Int32)">
+            <summary>
+            Executes method ExecuteAllCellsChecks and returns "true" if the selected element in the array is 0 
+            </summary>
+            <param name="gameField">Two dimensional array representing the game field</param>
+            <param name="row">Row in the array</param>
+            <param name="col">Column in the array</param>
+            <returns>"true" if the selected element in the array is 0 and "false" if it's not</returns>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.GameLogic.IsWinner(System.Byte[0:,0:])">
+            <summary>
+            Checks if the values of all cells in the array are equal to 0
+            </summary>
+            <param name="gameField">Two dimensional array representing the game field</param>
+            <returns>True if the values of all cells in the array are equal to 0 and false if they are not</returns>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.GameLogic.FallDown(System.Byte[0:,0:])">
+            <summary>
+            Makes the cells fall down if there are empty cells below
+            </summary>
+            <param name="gameField"></param>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.GameLogic.ProcessUserInput(System.Int32@,System.String@,System.Byte[0:,0:]@,BaloonsPopsGame.Utilities.GameField@,System.String[0:,0:]@,BaloonsPopsGame.Utilities.GameLogic@)">
+            <summary>
+            Handles all user input
+            </summary>
+            <param name="userMoves">Count of the user's moves</param>
+            <param name="commandInput">Current command to be executed</param>
+            <param name="gameField">Game field represented by two dimensional array</param>
+            <param name="gameFieldUtility">Game field generator class</param>
+            <param name="topFive">Two dimensional array of strings</param>
+            <param name="gameEngine">Current game logic</param>
+        </member>
+        <member name="F:BaloonsPopsGame.Utilities.ClassicalGameLogic.instance">
+            <summary>
+            Keeps an instance of the <see cref="T:BaloonsPopsGame.Utilities.ClassicalGameLogic"/> class
+            </summary>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.ClassicalGameLogic.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BaloonsPopsGame.Utilities.ClassicalGameLogic"/> class.
+            </summary>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.ClassicalGameLogic.Instance">
+            <summary>
+            Returns the only instance of the <see cref="T:BaloonsPopsGame.Utilities.ClassicalGameLogic"/> class
+            </summary>
+            <returns>Only instance of the <see cref="T:BaloonsPopsGame.Utilities.ClassicalGameLogic"/> class</returns>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.ClassicalGameLogic.ModifyGameField(System.Byte[0:,0:],System.Int32,System.Int32)">
+            <summary>
+            Executes method CheckCells and returns "false" if the selected element in the array is 0, else return true. 
+            </summary>
+            <param name="gameField">Two dimensional array representing the game field</param>
+            <param name="row">Row in the array</param>
+            <param name="col">Column in the array</param>
+            <returns>"true" if the selected element in the array is 0 and "false" if it's not</returns>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.ClassicalGameLogic.IsWinner(System.Byte[0:,0:])">
+            <summary>
+            Checks if the values of all cells in the array are equal to 0
+            </summary>
+            <param name="gameField">Two dimensional array representing the game field</param>
+            <returns>True if the values of all cells in the array are equal to 0 and false if they are not</returns>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.ClassicalGameLogic.FallDown(System.Byte[0:,0:])">
+            <summary>
+            Makes the cells fall down if there are empty cells below
+            </summary>
+            <param name="gameField">The game field of cells</param>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.ClassicalGameLogic.ProcessUserInput(System.Int32@,System.String@,System.Byte[0:,0:]@,BaloonsPopsGame.Utilities.GameField@,System.String[0:,0:]@,BaloonsPopsGame.Utilities.GameLogic@)">
+            <summary>
+            Handles all user input
+            </summary>
+            <param name="userMoves">Count of the user's moves</param>
+            <param name="commandInput">Current command to be executed</param>
+            <param name="gameField">Game field represented by two dimensional array</param>
+            <param name="gameFieldUtility">Game field generator class</param>
+            <param name="topFive">Two dimensional array of strings</param>
+            <param name="gameEngine">Current game logic</param>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.ClassicalGameLogic.CheckCells(System.Byte[0:,0:],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Checks if an array element is equal to a target: if so, set it to zero and call again with neighbours .
+            </summary>
+            <param name="gameField">Two dimensional array representing the game field</param>
+            <param name="row">Row in the array</param>
+            <param name="col">Column in the array</param>
+            <param name="target">The value searched for</param>
+        </member>
+        <member name="T:BaloonsPopsGame.Factories.ClassicalGameLogicFactory">
+            <summary>
+            The ClassicalGameLogicFactory class
+            </summary>
+        </member>
+        <member name="T:BaloonsPopsGame.Factories.GameLogicFactory">
+            <summary>
+            The abstract class GameLogicFactory
+            </summary>
+        </member>
+        <member name="M:BaloonsPopsGame.Factories.GameLogicFactory.Create">
+            <summary>
+            Returns an instance of the <see cref="T:BaloonsPopsGame.Utilities.GameLogic"/> class
+            </summary>
+            <returns>An instance of the <see cref="T:BaloonsPopsGame.Utilities.GameLogic"/> class</returns>
+        </member>
+        <member name="M:BaloonsPopsGame.Factories.ClassicalGameLogicFactory.Create">
+            <summary>
+            Returns an instance of the <see cref="T:BaloonsPopsGame.Utilities.ClassicalGameLogic"/> class
+            </summary>
+            <returns>An instance of the <see cref="T:BaloonsPopsGame.Utilities.ClassicalGameLogic"/> class</returns>
+        </member>
+        <member name="T:BaloonsPopsGame.Utilities.ClassicalGameField">
+            <summary>
+            The ClassicalGameField class
+            </summary>
+        </member>
+        <member name="T:BaloonsPopsGame.Utilities.GameField">
+            <summary>
+            The abstract class GameField
+            </summary>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.GameField.Generate(System.Byte,System.Byte)">
+            <summary>
+            Abstract method
+            </summary>
+            <param name="rows">Number of rows of the array</param>
+            <param name="cols">Number of columns of the array</param>
+            <returns>A two dimensional array</returns>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.GameField.Print(System.Byte[0:,0:])">
+            <summary>
+            Visualizes a two dimensional array
+            </summary>
+            <param name="field">A two dimensional array</param>
+        </member>
+        <member name="F:BaloonsPopsGame.Utilities.ClassicalGameField.instance">
+            <summary>
+            The only instance of the <see cref="T:BaloonsPopsGame.Utilities.ClassicalGameField"/> class
+            </summary>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.ClassicalGameField.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BaloonsPopsGame.Utilities.ClassicalGameField"/> class.
+            </summary>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.ClassicalGameField.Instance">
+            <summary>
+            Static method for implementing "Singleton"design pattern
+            </summary>
+            <returns>Only instance of the <see cref="T:BaloonsPopsGame.Utilities.ClassicalGameField"/> class</returns>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.ClassicalGameField.Generate(System.Byte,System.Byte)">
+            <summary>
+            Generates game field represented by a two dimensional array.
+            </summary>
+            <param name="rows">Number of rows in the array</param>
+            <param name="cols">Number of columns in the array</param>
+            <returns>Returns an array, filled with random numbers </returns>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.ClassicalGameField.Print(System.Byte[0:,0:])">
+            <summary>
+            Prints the field on the console.
+            </summary>
+            <param name="field">An array representing the game field</param>
+        </member>
+        <member name="T:BaloonsPopsGame.Factories.ClassicalGameFieldFactory">
+            <summary>
+            The ClassicalGameFieldFactory class
+            </summary>
+        </member>
+        <member name="T:BaloonsPopsGame.Factories.GameFieldFactory">
+            <summary>
+            The abstract class GameFieldFactory
+            </summary>
+        </member>
+        <member name="M:BaloonsPopsGame.Factories.GameFieldFactory.Create">
+            <summary>
+            Returns an instance of the <see cref="T:BaloonsPopsGame.Utilities.GameField"/> class
+            </summary>
+            <returns>An instance of the <see cref="T:BaloonsPopsGame.Utilities.GameField"/> class</returns>
+        </member>
+        <member name="M:BaloonsPopsGame.Factories.ClassicalGameFieldFactory.Create">
+            <summary>
+            Creates new game field
+            </summary>
+            <returns>An instance of <see cref="T:BaloonsPopsGame.Factories.ClassicalGameFieldFactory"/> class</returns>
+        </member>
+        <member name="T:BaloonsPopsGame.Utilities.GameEngine">
+            <summary>
+            The GameEngine class
+            </summary>
+        </member>
+        <member name="F:BaloonsPopsGame.Utilities.GameEngine.topFive">
+            <summary>
+            Two dimensional array containing the name and the score of the top five players
+            </summary>
+        </member>
+        <member name="F:BaloonsPopsGame.Utilities.GameEngine.gameFieldFactory">
+            <summary>
+            Instance of the <see cref="T:BaloonsPopsGame.Factories.GameFieldFactory"/> class
+            </summary>
+        </member>
+        <member name="F:BaloonsPopsGame.Utilities.GameEngine.gameFieldUtility">
+            <summary>
+            Instance of the <see cref="T:BaloonsPopsGame.Utilities.GameField"/> class
+            </summary>
+        </member>
+        <member name="F:BaloonsPopsGame.Utilities.GameEngine.gameField">
+            <summary>
+            Two dimensional array representing the game field
+            </summary>
+        </member>
+        <member name="F:BaloonsPopsGame.Utilities.GameEngine.gameLogicFactory">
+            <summary>
+            Instance of the <see cref="T:BaloonsPopsGame.Factories.GameLogicFactory"/> class
+            </summary>
+        </member>
+        <member name="F:BaloonsPopsGame.Utilities.GameEngine.gameLogic">
+            <summary>
+            Instance of the <see cref="T:BaloonsPopsGame.Utilities.GameLogic"/> class
+            </summary>
+        </member>
+        <member name="F:BaloonsPopsGame.Utilities.GameEngine.currentCommand">
+            <summary>
+            The user command
+            </summary>
+        </member>
+        <member name="F:BaloonsPopsGame.Utilities.GameEngine.userMovesCount">
+            <summary>
+            Count of the users moves so far
+            </summary>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.GameEngine.InitializeGame">
+            <summary>
+            Initializes all fields
+            </summary>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.GameEngine.PrintGameField">
+            <summary>
+            Visualizes the game field
+            </summary>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.GameEngine.PlayGame">
+            <summary>
+            Starts the game and executes the game logic
+            </summary>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.GameEngine.ExitGame">
+            <summary>
+            Stops the game and prints the good bye message
+            </summary>
+        </member>
+        <member name="T:BaloonsPopsGame.Utilities.GameFieldCell">
+            <summary>
+            The GameFieldCell class
+            </summary>
+        </member>
+        <member name="F:BaloonsPopsGame.Utilities.GameFieldCell.value">
+            <summary>
+            Integer value in the cell
+            </summary>
+        </member>
+        <member name="F:BaloonsPopsGame.Utilities.GameFieldCell.foregroundColor">
+            <summary>
+            The foreground color of the cell
+            </summary>
+        </member>
+        <member name="F:BaloonsPopsGame.Utilities.GameFieldCell.backgroundColor">
+            <summary>
+            The background color of the cell
+            </summary>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.GameFieldCell.#ctor(System.Int32,System.ConsoleColor,System.ConsoleColor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BaloonsPopsGame.Utilities.GameFieldCell"/> class.
+            </summary>
+            <param name="value">Integer value in the cell</param>
+            <param name="foregroundColor">The foreground color of the cell</param>
+            <param name="backgroundColor">The background color of the cell</param>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.GameFieldCell.Draw">
+            <summary>
+            Visualizes the cell
+            </summary>
+        </member>
+        <member name="T:BaloonsPopsGame.Factories.GameFieldCellsFlyweightFactory">
+            <summary>
+            The GameFieldCellsFlyweightFactory class
+            </summary>
+        </member>
+        <member name="F:BaloonsPopsGame.Factories.GameFieldCellsFlyweightFactory.flywieghtCells">
+            <summary>
+            Dictionary containing information about the colors of all cell with different values
+            </summary>
+        </member>
+        <member name="M:BaloonsPopsGame.Factories.GameFieldCellsFlyweightFactory.#cctor">
+            <summary>
+            Initializes static members of the <see cref="T:BaloonsPopsGame.Factories.GameFieldCellsFlyweightFactory"/> class.
+            </summary>
+        </member>
+        <member name="M:BaloonsPopsGame.Factories.GameFieldCellsFlyweightFactory.GetCellByValue(System.Int32)">
+            <summary>
+            Returns a <see cref="T:BaloonsPopsGame.Utilities.GameFieldCell"/> by it's value
+            </summary>
+            <param name="value">Value of the searched cell</param>
+            <returns>A <see cref="T:BaloonsPopsGame.Utilities.GameFieldCell"/> by it's value</returns>
+        </member>
+        <member name="T:BaloonsPopsGame.Row">
+            <summary>
+            The Row class
+            </summary>
+        </member>
+        <member name="M:BaloonsPopsGame.Row.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BaloonsPopsGame.Row"/> class 
+            </summary>
+            <param name="name">The name of the row</param>
+            <param name="value">The value of the row</param>
+        </member>
+        <member name="M:BaloonsPopsGame.Row.CompareTo(BaloonsPopsGame.Row)">
+            <summary>
+            Compares two instances of the <see cref="T:BaloonsPopsGame.Row"/> class by their value
+            </summary>
+            <param name="other">An instance of the <see cref="T:BaloonsPopsGame.Row"/></param>
+            <returns>0 if the two rows are equal,
+            1 if the value of the first row is bigger than the value of the second
+            and -1 if the value of the second row is bigger than the value of the first</returns>
+        </member>
+        <member name="P:BaloonsPopsGame.Row.Name">
+            <summary>
+            Gets or sets the name of the row
+            </summary>
+        </member>
+        <member name="P:BaloonsPopsGame.Row.Value">
+            <summary>
+            Gets or sets the value of the row
+            </summary>
+        </member>
+        <member name="T:BaloonsPopsGame.Utilities.HighScores">
+            <summary>
+            The HighScores class
+            </summary>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.HighScores.SortAndPrint(System.String[0:,0:])">
+            <summary>
+            Sorts and prints the top five chart
+            </summary>
+            <param name="tableToSort">Chart to be sorted and printed</param>
+        </member>
+        <member name="M:BaloonsPopsGame.Utilities.HighScores.IsPlayerInChart(System.String[0:,0:],System.Int32)">
+            <summary>
+            Checks if the current player has good enough score to go in the top five chart
+            </summary>
+            <param name="chart">Two dimensional array representing the top five chart</param>
+            <param name="points">Number of point the current player has</param>
+            <returns>Boolean variable</returns>
+        </member>
+    </members>
+</doc>

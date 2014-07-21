@@ -185,6 +185,7 @@ namespace BaloonsPopsGame.Utilities
                         gameEngine.FallDown(gameField);
                     }
 
+                    Console.Clear();
                     gameFieldUtility.Print(gameField);
                     break;
             }
