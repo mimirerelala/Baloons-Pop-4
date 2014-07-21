@@ -21,7 +21,7 @@
         public void IsWinnerMethodLogicWorks()
         {
             var emptyInput = new byte[0, 0];
-            var upLeftInput = new byte[4, 4] 
+            var upLeftInput = new byte[4, 4]
             {
                 { 1, 0, 0, 0 },
                 { 0, 0, 0, 0 },
@@ -239,15 +239,5 @@
             gameEngine.ProcessUserInput(ref userMoves, ref restart, ref field, ref fieldUtility, ref topFive, ref gameEngine);
             Assert.AreEqual(expectedMoves, userMoves);
         }
-
-
-
-
-
-
-
-
-
-
     }
 }

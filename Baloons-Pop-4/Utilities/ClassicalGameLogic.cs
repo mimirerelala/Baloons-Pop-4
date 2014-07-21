@@ -193,7 +193,7 @@ namespace BaloonsPopsGame.Utilities
         }
 
         /// <summary>
-        /// Checks if an array element is equal to a target: if so, set it to zero and call again with neighbours .
+        /// Checks if an array element is equal to a target: if so, set it to zero and call again with neighbours.
         /// </summary>
         /// <param name="gameField">Two dimensional array representing the game field</param>
         /// <param name="row">Row in the array</param>

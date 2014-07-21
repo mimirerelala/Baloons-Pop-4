@@ -5,8 +5,8 @@ namespace BaloonsPopsGame.Utilities
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.IO;
+    using System.Linq;
 
     /// <summary>
     /// The HighScores class
@@ -44,13 +44,18 @@ namespace BaloonsPopsGame.Utilities
             Console.WriteLine("----------------------------------");
         }
 
+        /// <summary>
+        /// Saves a chart to a text file by a give file path
+        /// </summary>
+        /// <param name="chart">Top five chart array</param>
+        /// <param name="filePath">Path to which the file will be saved</param>
         public static void Save(string[,] chart, string filePath)
         {
             StreamWriter scoresFile = new StreamWriter(filePath);
 
             using (scoresFile)
             {
-                //Save the dimention of the array
+                // Save the dimention of the array
                 scoresFile.WriteLine(chart.GetLength(0));
                 scoresFile.WriteLine(chart.GetLength(1));
 
@@ -64,6 +69,11 @@ namespace BaloonsPopsGame.Utilities
             }
         }
 
+        /// <summary>
+        /// Loads a chart from a file and returns it
+        /// </summary>
+        /// <param name="filePath">Path to the saved chart</param>
+        /// <returns></returns>
         public static string[,] Load(string filePath)
         {
             string[,] chart;
@@ -83,8 +93,9 @@ namespace BaloonsPopsGame.Utilities
                     for (int k = 0; k < chart.GetLength(1); k++)
                     {
                         currentChartCell = scoresFile.ReadLine();
-
-                        if (currentChartCell == string.Empty){
+                        
+                        if (currentChartCell == string.Empty)
+                        {
                             chart[i, k] = null;
                         }
                         else

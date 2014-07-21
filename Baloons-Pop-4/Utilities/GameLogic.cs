@@ -30,7 +30,6 @@ namespace BaloonsPopsGame.Utilities
         /// <summary>
         /// Makes the cells fall down if there are empty cells below
         /// </summary>
-        /// <param name="gameField"></param>
         public abstract void FallDown(byte[,] gameField);
 
         /// <summary>

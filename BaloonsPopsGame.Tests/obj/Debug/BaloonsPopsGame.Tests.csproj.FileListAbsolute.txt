@@ -1,0 +1,8 @@
+D:\Telerik\КПК\Teamwork\BaloonsPopsGame.Tests\bin\Debug\BaloonsPopsGame.Tests.dll
+D:\Telerik\КПК\Teamwork\BaloonsPopsGame.Tests\bin\Debug\BaloonsPopsGame.Tests.pdb
+D:\Telerik\КПК\Teamwork\BaloonsPopsGame.Tests\bin\Debug\BaloonsPopsGame.exe
+D:\Telerik\КПК\Teamwork\BaloonsPopsGame.Tests\bin\Debug\BaloonsPopsGame.pdb
+D:\Telerik\КПК\Teamwork\BaloonsPopsGame.Tests\bin\Debug\BaloonsPopsGame.xml
+D:\Telerik\КПК\Teamwork\BaloonsPopsGame.Tests\obj\Debug\BaloonsPopsGame.Tests.csprojResolveAssemblyReference.cache
+D:\Telerik\КПК\Teamwork\BaloonsPopsGame.Tests\obj\Debug\BaloonsPopsGame.Tests.dll
+D:\Telerik\КПК\Teamwork\BaloonsPopsGame.Tests\obj\Debug\BaloonsPopsGame.Tests.pdb
