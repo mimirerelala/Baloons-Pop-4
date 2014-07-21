@@ -17,6 +17,7 @@ namespace BaloonsPopsGame.Utilities
         /// Two dimensional array containing the name and the score of the top five players
         /// </summary>
         private static string[,] topFive;
+        private static string topFiveFilePath = @"../../files/chart.txt";
 
         /// <summary>
         /// Instance of the <see cref="GameFieldFactory"/> class
@@ -58,7 +59,7 @@ namespace BaloonsPopsGame.Utilities
         /// </summary>
         public static void InitializeGame()
         {
-            GameEngine.topFive = new string[5, 2];
+            GameEngine.topFive = HighScores.Load(GameEngine.topFiveFilePath);
             GameEngine.gameFieldFactory = new ClassicalGameFieldFactory();
             GameEngine.gameFieldUtility = gameFieldFactory.Create();
             
@@ -99,6 +100,7 @@ namespace BaloonsPopsGame.Utilities
         internal static void ExitGame()
         {
             Console.WriteLine("Good-bye");
+            HighScores.Save(GameEngine.topFive, GameEngine.topFiveFilePath);
         }
     }
 }

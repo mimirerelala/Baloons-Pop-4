@@ -6,6 +6,7 @@ namespace BaloonsPopsGame.Utilities
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.IO;
 
     /// <summary>
     /// The HighScores class
@@ -41,6 +42,60 @@ namespace BaloonsPopsGame.Utilities
             }
 
             Console.WriteLine("----------------------------------");
+        }
+
+        public static void Save(string[,] chart, string filePath)
+        {
+            StreamWriter scoresFile = new StreamWriter(filePath);
+
+            using (scoresFile)
+            {
+                //Save the dimention of the array
+                scoresFile.WriteLine(chart.GetLength(0));
+                scoresFile.WriteLine(chart.GetLength(1));
+
+                for (int i = 0; i < chart.GetLength(0); i++)
+                {
+                    for (int k = 0; k < chart.GetLength(1); k++)
+                    {
+                        scoresFile.WriteLine(chart[i, k]);
+                    }
+                }
+            }
+        }
+
+        public static string[,] Load(string filePath)
+        {
+            string[,] chart;
+
+            StreamReader scoresFile = new StreamReader(filePath);
+
+            using (scoresFile)
+            {
+                int chartPropertyCount = Convert.ToInt32(scoresFile.ReadLine());
+                int chartMembersCount = Convert.ToInt32(scoresFile.ReadLine());
+
+                chart = new string[chartPropertyCount, chartMembersCount];
+                string currentChartCell;
+
+                for (int i = 0; i < chart.GetLength(0); i++)
+                {
+                    for (int k = 0; k < chart.GetLength(1); k++)
+                    {
+                        currentChartCell = scoresFile.ReadLine();
+
+                        if (currentChartCell == string.Empty){
+                            chart[i, k] = null;
+                        }
+                        else
+                        {
+                            chart[i, k] = currentChartCell;
+                        }                         
+                    }
+                }
+            }
+
+            return chart;
         }
 
         /// <summary>

@@ -135,6 +135,7 @@ namespace BaloonsPopsGame.Utilities
             {
                 case "RESTART":
                     gameField = gameFieldUtility.Generate(5, 10);
+                    Console.Clear();
                     gameFieldUtility.Print(gameField);
                     userMoves = 0;
                     break;

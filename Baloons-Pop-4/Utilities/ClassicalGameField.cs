@@ -67,8 +67,6 @@ namespace BaloonsPopsGame.Utilities
         /// <param name="field">An array representing the game field</param>
         public override void Print(byte[,] field)
         {
-            //Console.Clear();
-
             var fieldWidth = field.GetLength(1);
             var fieldHeight = field.GetLength(0);
             var horizontalBorder = new string('-', (fieldWidth * 3) + 1);
