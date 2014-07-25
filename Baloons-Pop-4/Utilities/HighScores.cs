@@ -17,7 +17,7 @@ namespace BaloonsPopsGame.Utilities
         /// Sorts and prints the top five chart
         /// </summary>
         /// <param name="tableToSort">Chart to be sorted and printed</param>
-        public static void SortAndPrint(string[,] tableToSort)
+        public static void Print(string[,] tableToSort)
         {
             List<Row> highScores = new List<Row>();
 

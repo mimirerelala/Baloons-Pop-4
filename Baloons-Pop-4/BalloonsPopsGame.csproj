@@ -60,7 +60,7 @@
     <Compile Include="Factories\GameLogicFactory.cs" />
     <Compile Include="Utilities\GameField.cs" />
     <Compile Include="Factories\GameFieldFactory.cs" />
-    <Compile Include="Row.cs" />
+    <Compile Include="Utilities\Utilities.Row.cs" />
     <Compile Include="Utilities\HighScores.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -140,7 +140,7 @@ namespace BaloonsPopsGame.Utilities
                     userMoves = 0;
                     break;
                 case "TOP":
-                    HighScores.SortAndPrint(topFive);
+                    HighScores.Print(topFive);
                     break;
                 case "EXIT":
                     break;
@@ -170,7 +170,7 @@ namespace BaloonsPopsGame.Utilities
                         Console.WriteLine("Congratulations ! You have completed the game in {0} moves!", userMoves);
                         if (HighScores.IsPlayerInChart(topFive, userMoves))
                         {
-                            HighScores.SortAndPrint(topFive);
+                            HighScores.Print(topFive);
                         }
                         else
                         {
