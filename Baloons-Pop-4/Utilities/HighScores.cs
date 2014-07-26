@@ -23,7 +23,6 @@ namespace BaloonsPopsGame.Utilities
             int highScoreRowCounter = 5;
             int highScoreColCounter = 1;
 
-
             for (int i = 0; i < highScoreRowCounter; ++i)
             {
                 if (tableToSort.GetLength(0) < highScoreRowCounter || tableToSort[i, 0] == null)

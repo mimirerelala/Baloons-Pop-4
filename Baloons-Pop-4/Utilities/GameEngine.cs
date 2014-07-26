@@ -16,8 +16,8 @@ namespace BaloonsPopsGame.Utilities
         /// <summary>
         /// Two dimensional array containing the name and the score of the top five players
         /// </summary>
-        private static string[,] topFive;
         private const string TOP_FIVE_FILE_PATH = @"../../files/chart.txt";
+        private static string[,] topFive;
 
         /// <summary>
         /// Instance of the <see cref="GameFieldFactory"/> class
