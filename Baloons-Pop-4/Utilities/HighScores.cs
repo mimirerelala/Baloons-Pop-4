@@ -9,14 +9,14 @@ namespace BaloonsPopsGame.Utilities
     using System.Linq;
 
     /// <summary>
-    /// The HighScores class
+    /// The HighScores class.
     /// </summary>
     public static class HighScores
     {
         /// <summary>
-        /// Sorts and prints the top five chart
+        /// Sorts and prints the top five chart.
         /// </summary>
-        /// <param name="tableToSort">Chart to be sorted and printed</param>
+        /// <param name="tableToSort">Chart to be sorted and printed.</param>
         public static void Print(string[,] tableToSort)
         {
             List<Row> highScores = new List<Row>();
@@ -50,10 +50,10 @@ namespace BaloonsPopsGame.Utilities
         }
 
         /// <summary>
-        /// Saves a chart to a text file by a give file path
+        /// Saves a chart to a text file by a give file path.
         /// </summary>
-        /// <param name="chart">Top five chart array</param>
-        /// <param name="filePath">Path to which the file will be saved</param>
+        /// <param name="chart">Top five chart array.</param>
+        /// <param name="filePath">Path to which the file will be saved.</param>
         public static void Save(string[,] chart, string filePath)
         {
             StreamWriter scoresFile = new StreamWriter(filePath);
@@ -75,10 +75,10 @@ namespace BaloonsPopsGame.Utilities
         }
 
         /// <summary>
-        /// Loads a chart from a file and returns it
+        /// Loads a chart from a file and returns it.
         /// </summary>
-        /// <param name="filePath">Path to the saved chart</param>
-        /// <returns></returns>
+        /// <param name="filePath">Path to the saved chart.</param>
+        /// <returns>The array of bes players.</returns>
         public static string[,] Load(string filePath)
         {
             string[,] chart;
@@ -115,11 +115,11 @@ namespace BaloonsPopsGame.Utilities
         }
 
         /// <summary>
-        /// Checks if the current player has good enough score to go in the top five chart
+        /// Checks if the current player has good enough score to go in the top five chart.
         /// </summary>
-        /// <param name="chart">Two dimensional array representing the top five chart</param>
-        /// <param name="points">Number of point the current player has</param>
-        /// <returns>Boolean variable</returns>
+        /// <param name="chart">Two dimensional array representing the top five chart.</param>
+        /// <param name="points">Number of point the current player has.</param>
+        /// <returns>Boolean variable.</returns>
         public static bool IsPlayerInChart(string[,] chart, int points)
         {
             bool skilled = false;

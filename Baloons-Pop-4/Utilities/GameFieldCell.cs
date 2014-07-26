@@ -6,31 +6,31 @@ namespace BaloonsPopsGame.Utilities
     using System;
 
     /// <summary>
-    /// The GameFieldCell class
+    /// The GameFieldCell class.
     /// </summary>
     public class GameFieldCell
     {
         /// <summary>
-        /// Integer value in the cell
+        /// Integer value in the cell.
         /// </summary>
         private readonly int value;
 
         /// <summary>
-        /// The foreground color of the cell
+        /// The foreground color of the cell.
         /// </summary>
         private readonly ConsoleColor foregroundColor;
 
         /// <summary>
-        /// The background color of the cell
+        /// The background color of the cell.
         /// </summary>
         private readonly ConsoleColor backgroundColor;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GameFieldCell"/> class.
         /// </summary>
-        /// <param name="value">Integer value in the cell</param>
-        /// <param name="foregroundColor">The foreground color of the cell</param>
-        /// <param name="backgroundColor">The background color of the cell</param>
+        /// <param name="value">Integer value in the cell.</param>
+        /// <param name="foregroundColor">The foreground color of the cell.</param>
+        /// <param name="backgroundColor">The background color of the cell.</param>
         public GameFieldCell(int value, ConsoleColor foregroundColor, ConsoleColor backgroundColor)
         {
             this.value = value;
@@ -39,7 +39,7 @@ namespace BaloonsPopsGame.Utilities
         }
 
         /// <summary>
-        /// Visualizes the cell
+        /// Visualizes the cell.
         /// </summary>
         public void Draw()
         {

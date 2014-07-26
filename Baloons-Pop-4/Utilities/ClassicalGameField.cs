@@ -8,12 +8,12 @@ namespace BaloonsPopsGame.Utilities
     using Factories;
 
     /// <summary>
-    /// The ClassicalGameField class
+    /// The ClassicalGameField class.
     /// </summary>
     public class ClassicalGameField : GameField
     {
         /// <summary>
-        /// The only instance of the <see cref="ClassicalGameField"/> class
+        /// The only instance of the <see cref="ClassicalGameField"/> class.
         /// </summary>
         private static ClassicalGameField instance;
 
@@ -25,9 +25,9 @@ namespace BaloonsPopsGame.Utilities
         }
 
         /// <summary>
-        /// Static method for implementing "Singleton"design pattern
+        /// Static method for implementing "Singleton"design pattern.
         /// </summary>
-        /// <returns>Only instance of the <see cref="ClassicalGameField"/> class</returns>
+        /// <returns>Only instance of the <see cref="ClassicalGameField"/> class.</returns>
         public static ClassicalGameField Instance()
         {
             if (instance == null)
@@ -41,9 +41,9 @@ namespace BaloonsPopsGame.Utilities
         /// <summary>
         /// Generates game field represented by a two dimensional array.
         /// </summary>
-        /// <param name="rows">Number of rows in the array</param>
-        /// <param name="cols">Number of columns in the array</param>
-        /// <returns>Returns an array, filled with random numbers </returns>
+        /// <param name="rows">Number of rows in the array.</param>
+        /// <param name="cols">Number of columns in the array.</param>
+        /// <returns>Returns an array, filled with random numbers.</returns>
         public override byte[,] Generate(byte rows, byte cols) 
         {
             var gameField = new byte[rows, cols];
@@ -64,7 +64,7 @@ namespace BaloonsPopsGame.Utilities
         /// <summary>
         /// Prints the field on the console.
         /// </summary>
-        /// <param name="field">An array representing the game field</param>
+        /// <param name="field">An array representing the game field.</param>
         public override void Print(byte[,] field)
         {
             var fieldWidth = field.GetLength(1);

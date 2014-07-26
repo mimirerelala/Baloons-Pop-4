@@ -3,11 +3,24 @@
     using System;
     using System.IO;
 
+    /// <summary>
+    /// Auxiliary class to redirect console output.
+    /// </summary>
     public class ConsoleOutput : IDisposable
     {
+        /// <summary>
+        /// The object to set the console output to.
+        /// </summary>
         private StringWriter stringWriter;
+
+        /// <summary>
+        /// Stores the original console output.
+        /// </summary>
         private TextWriter originalOutput;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public ConsoleOutput()
         {
             this.stringWriter = new StringWriter();

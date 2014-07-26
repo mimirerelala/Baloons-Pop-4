@@ -1,9 +1,9 @@
 ﻿namespace BaloonsPopsGame.Tests.Utilities
 {
     using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System.IO;
     using BaloonsPopsGame.Utilities;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class HighScoresTest
@@ -20,6 +20,7 @@
             {
                 result = reader.ReadToEnd();
             }
+
             var expected = "0" + Environment.NewLine + "0" + Environment.NewLine;
 
             Assert.AreEqual(expected, result);
@@ -34,7 +35,6 @@
             HighScores.Save(input, path);
 
             var result = HighScores.Load(path);
-
 
             foreach (var item in result)
             {

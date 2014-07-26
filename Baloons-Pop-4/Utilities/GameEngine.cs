@@ -9,53 +9,57 @@ namespace BaloonsPopsGame.Utilities
     using BaloonsPopsGame.Factories;
 
     /// <summary>
-    /// The GameEngine class
+    /// The GameEngine class.
     /// </summary>
     public static class GameEngine
     {
         /// <summary>
-        /// Two dimensional array containing the name and the score of the top five players
+        /// Two dimensional array containing the name and the score of the top five players.
         /// </summary>
         private const string TOP_FIVE_FILE_PATH = @"../../files/chart.txt";
+
+        /// <summary>
+        /// The top five players.
+        /// </summary>
         private static string[,] topFive;
 
         /// <summary>
-        /// Instance of the <see cref="GameFieldFactory"/> class
+        /// Instance of the <see cref="GameFieldFactory"/> class.
         /// </summary>
         private static GameFieldFactory gameFieldFactory;
 
         /// <summary>
-        /// Instance of the <see cref="GameField"/> class
+        /// Instance of the <see cref="GameField"/> class.
         /// </summary>
         private static GameField gameFieldUtility;
 
         /// <summary>
-        /// Two dimensional array representing the game field
+        /// Two dimensional array representing the game field.
         /// </summary>
         private static byte[,] gameField;
 
         /// <summary>
-        /// Instance of the <see cref="GameLogicFactory"/> class
+        /// Instance of the <see cref="GameLogicFactory"/> class.
         /// </summary>
         private static GameLogicFactory gameLogicFactory;
 
         /// <summary>
-        /// Instance of the <see cref="GameLogic"/> class
+        /// Instance of the <see cref="GameLogic"/> class.
         /// </summary>
         private static GameLogic gameLogic;
 
         /// <summary>
-        /// The user command
+        /// The user command.
         /// </summary>
         private static string currentCommand;
 
         /// <summary>
-        /// Count of the users moves so far
+        /// Count of the users moves so far.
         /// </summary>
         private static int userMovesCount;
 
         /// <summary>
-        /// Initializes all fields
+        /// Initializes all fields.
         /// </summary>
         public static void InitializeGame()
         {
@@ -73,7 +77,7 @@ namespace BaloonsPopsGame.Utilities
         }
 
         /// <summary>
-        /// Visualizes the game field
+        /// Visualizes the game field.
         /// </summary>
         public static void PrintGameField() 
         {
@@ -81,7 +85,7 @@ namespace BaloonsPopsGame.Utilities
         }
 
         /// <summary>
-        /// Starts the game and executes the game logic
+        /// Starts the game and executes the game logic.
         /// </summary>
         public static void PlayGame() 
         {
@@ -95,7 +99,7 @@ namespace BaloonsPopsGame.Utilities
         }
 
         /// <summary>
-        /// Stops the game and prints the good bye message
+        /// Stops the game and prints the good bye message.
         /// </summary>
         internal static void ExitGame()
         {

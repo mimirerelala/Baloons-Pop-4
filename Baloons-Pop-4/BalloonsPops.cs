@@ -8,7 +8,7 @@ namespace BaloonsPopsGame
     using Utilities;
     
     /// <summary>
-    /// The class containing the "Main" method of the program
+    /// The class containing the "Main" method of the program.
     /// </summary>
     public class BalloonsPops
     {

@@ -7,14 +7,14 @@ namespace BaloonsPopsGame.Factories
     using Utilities;
 
     /// <summary>
-    /// The ClassicalGameFieldFactory class
+    /// The ClassicalGameFieldFactory class.
     /// </summary>
     public class ClassicalGameFieldFactory : GameFieldFactory
     {
         /// <summary>
-        /// Creates new game field
+        /// Creates new game field.
         /// </summary>
-        /// <returns>An instance of <see cref="ClassicalGameFieldFactory"/> class</returns>
+        /// <returns>An instance of <see cref="ClassicalGameFieldFactory"/> class.</returns>
         public override GameField Create()
         {
             return ClassicalGameField.Instance();

@@ -7,14 +7,14 @@ namespace BaloonsPopsGame.Factories
     using Utilities;
 
     /// <summary>
-    /// The abstract class GameLogicFactory
+    /// The abstract class GameLogicFactory.
     /// </summary>
     public abstract class GameLogicFactory
     {
         /// <summary>
-        /// Returns an instance of the <see cref="GameLogic"/> class
+        /// Returns an instance of the <see cref="GameLogic"/> class.
         /// </summary>
-        /// <returns>An instance of the <see cref="GameLogic"/> class</returns>
+        /// <returns>An instance of the <see cref="GameLogic"/> class.</returns>
         public abstract GameLogic Create();
     }
 }

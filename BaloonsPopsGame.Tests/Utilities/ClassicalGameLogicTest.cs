@@ -1,10 +1,10 @@
 ﻿namespace BaloonsPopsGame.Tests
 {
-    using BaloonsPopsGame.Factories;
-    using BaloonsPopsGame.Utilities;
     using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using BaloonsPopsGame.Factories;
     using BaloonsPopsGame.Tests.Utilities;
+    using BaloonsPopsGame.Utilities;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class ClassicalGameLogicTest
@@ -21,7 +21,7 @@
         public void IsWinnerMethodLogicWorks()
         {
             var emptyInput = new byte[0, 0];
-            var upLeftInput = new byte[4, 4]
+            var upperLeftInput = new byte[4, 4]
             {
                 { 1, 0, 0, 0 },
                 { 0, 0, 0, 0 },
@@ -45,7 +45,7 @@
                 { 1, 0, 0, 0 },
             };
 
-            var upRightInput = new byte[4, 4] 
+            var upperRightInput = new byte[4, 4] 
             {
                 { 0, 0, 0, 1 },
                 { 0, 0, 0, 0 },
@@ -55,8 +55,8 @@
 
             var instance = ClassicalGameLogic.Instance();
             Assert.AreEqual(true, instance.IsWinner(emptyInput));
-            Assert.AreEqual(false, instance.IsWinner(upLeftInput));
-            Assert.AreEqual(false, instance.IsWinner(upRightInput));
+            Assert.AreEqual(false, instance.IsWinner(upperLeftInput));
+            Assert.AreEqual(false, instance.IsWinner(upperRightInput));
             Assert.AreEqual(false, instance.IsWinner(downLeftInput));
             Assert.AreEqual(false, instance.IsWinner(downRightInput));
         }
@@ -64,9 +64,9 @@
         [TestMethod]
         public void FallDownLogicWorks()
         {
-            const int size = 4;
+            const int SIZE = 4;
 
-            var inputMixed = new byte[size, size] 
+            var inputMixed = new byte[SIZE, SIZE] 
             {
                 { 1, 0, 1, 1 },
                 { 0, 1, 0, 0 },
@@ -74,7 +74,7 @@
                 { 0, 1, 1, 0 },
             };
 
-            var expectedInputMixed = new byte[size, size] 
+            var expectedInputMixed = new byte[SIZE, SIZE] 
             {
                 { 0, 0, 0, 0 },
                 { 0, 0, 0, 0 },
@@ -82,7 +82,7 @@
                 { 1, 1, 1, 1 },
             };
 
-            var inputDown = new byte[size, size] 
+            var inputDown = new byte[SIZE, SIZE] 
             {
                 { 0, 0, 0, 0 },
                 { 0, 0, 0, 0 },
@@ -90,7 +90,7 @@
                 { 1, 1, 1, 1 },
             };
 
-            var expectedInputDown = new byte[size, size] 
+            var expectedInputDown = new byte[SIZE, SIZE] 
             {
                 { 0, 0, 0, 0 },
                 { 0, 0, 0, 0 },
@@ -98,7 +98,7 @@
                 { 1, 1, 1, 1 },
             };
 
-            var inputFull = new byte[size, size] 
+            var inputFull = new byte[SIZE, SIZE] 
             {
                 { 1, 1, 1, 1 },
                 { 1, 1, 1, 1 },
@@ -106,7 +106,7 @@
                 { 1, 1, 1, 1 },
             };
 
-            var expectedInputFull = new byte[size, size] 
+            var expectedInputFull = new byte[SIZE, SIZE] 
             {
                 { 1, 1, 1, 1 },
                 { 1, 1, 1, 1 },
@@ -114,7 +114,7 @@
                 { 1, 1, 1, 1 },
             };
 
-            var inputEmpty = new byte[size, size] 
+            var inputEmpty = new byte[SIZE, SIZE] 
             {
                 { 0, 0, 0, 0 },
                 { 0, 0, 0, 0 },
@@ -122,7 +122,7 @@
                 { 0, 0, 0, 0 },
             };
 
-            var expectedInputEmpty = new byte[size, size] 
+            var expectedInputEmpty = new byte[SIZE, SIZE] 
             {
                 { 0, 0, 0, 0 },
                 { 0, 0, 0, 0 },
@@ -136,9 +136,9 @@
             instance.FallDown(inputEmpty);
             instance.FallDown(inputDown);
 
-            for (int row = 0; row < size; row++)
+            for (int row = 0; row < SIZE; row++)
             {
-                for (int col = 0; col < size; col++)
+                for (int col = 0; col < SIZE; col++)
                 {
                     Assert.AreEqual(expectedInputMixed[row, col], inputMixed[row, col]);
                     Assert.AreEqual(expectedInputFull[row, col], inputFull[row, col]);
@@ -151,9 +151,9 @@
         [TestMethod]
         public void ModifyGameFieldLogicWorksWithFullCell()
         {
-            const int size = 8;
+            const int SIZE = 8;
 
-            var input = new byte[size, size] 
+            var input = new byte[SIZE, SIZE] 
             {
                 { 1, 2, 2, 2, 2, 2, 2, 1 },
                 { 2, 1, 2, 2, 2, 2, 2, 1 },
@@ -165,7 +165,7 @@
                 { 1, 1, 2, 1, 1, 1, 2, 2 },
             };
 
-            var expected = new byte[size, size] 
+            var expected = new byte[SIZE, SIZE] 
             {
                 { 1, 2, 2, 2, 2, 2, 2, 0 },
                 { 2, 0, 2, 2, 2, 2, 2, 0 },
@@ -180,9 +180,9 @@
             var instance = ClassicalGameLogic.Instance();
             var modified = instance.ModifyGameField(input, 1, 1);
             Assert.AreEqual(true, modified);
-            for (int row = 0; row < size; row++)
+            for (int row = 0; row < SIZE; row++)
             {
-                for (int col = 0; col < size; col++)
+                for (int col = 0; col < SIZE; col++)
                 {
                     Assert.AreEqual(expected[row, col], input[row, col]);
                 }
@@ -192,26 +192,26 @@
         [TestMethod]
         public void ModifyGameFieldLogicWorksWithEmptyCell()
         {
-            const int size = 2;
+            const int SIZE = 2;
 
-            var input = new byte[size, size] 
+            var input = new byte[SIZE, SIZE] 
             {
-                { 0, 1},
-                { 1, 1},
+                { 0, 1 },
+                { 1, 1 },
             };
 
-            var expected = new byte[size, size] 
+            var expected = new byte[SIZE, SIZE] 
             {
-                { 0, 1},
-                { 1, 1},
+                { 0, 1 },
+                { 1, 1 },
             };
 
             var instance = ClassicalGameLogic.Instance();
             var modified = instance.ModifyGameField(input, 0, 0);
             Assert.AreEqual(false, modified);
-            for (int row = 0; row < size; row++)
+            for (int row = 0; row < SIZE; row++)
             {
-                for (int col = 0; col < size; col++)
+                for (int col = 0; col < SIZE; col++)
                 {
                     Assert.AreEqual(expected[row, col], input[row, col]);
                 }
@@ -245,11 +245,10 @@
         {
             int userMoves = 0;
             string firstCommand = "invalidCommand";
-            string secondCommand = "";
+            string secondCommand = string.Empty;
             string thirdCommand = "-1 0";
             string fourthCommand = "0 1";
             string fifthCommand = "0 0";
-
 
             var field = new byte[0, 0];
             GameField fieldUtility = ClassicalGameField.Instance();
@@ -317,9 +316,8 @@
             GameLogic gameEngine = ClassicalGameLogic.Instance();
             var field = new byte[2, 2] 
             { 
-                {1,1},
-                {1,0},
-
+                { 1, 1 },
+                { 1, 0 },
             };
 
             var input = new ConsoleInput("testName");
@@ -330,7 +328,5 @@
                 Assert.AreEqual(0, userMoves);
             }
         }
-
-
     }
 }

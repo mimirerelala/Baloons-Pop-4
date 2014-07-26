@@ -9,12 +9,12 @@ namespace BaloonsPopsGame.Factories
     using Utilities;
 
     /// <summary>
-    /// The GameFieldCellsFlyweightFactory class
+    /// The GameFieldCellsFlyweightFactory class.
     /// </summary>
     public static class GameFieldCellsFlyweightFactory
     {
         /// <summary>
-        /// Dictionary containing information about the colors of all cell with different values
+        /// Dictionary containing information about the colors of all cell with different values.
         /// </summary>
         private static Dictionary<int, GameFieldCell> flywieghtCells = new Dictionary<int, GameFieldCell>();
 
@@ -30,10 +30,10 @@ namespace BaloonsPopsGame.Factories
         }
 
         /// <summary>
-        /// Returns a <see cref="GameFieldCell"/> by it's value
+        /// Returns a <see cref="GameFieldCell"/> by it's value.
         /// </summary>
-        /// <param name="value">Value of the searched cell</param>
-        /// <returns>A <see cref="GameFieldCell"/> by it's value</returns>
+        /// <param name="value">Value of the searched cell.</param>
+        /// <returns>A <see cref="GameFieldCell"/> by it's value.</returns>
         public static GameFieldCell GetCellByValue(int value)
         {
             return GameFieldCellsFlyweightFactory.flywieghtCells[value];

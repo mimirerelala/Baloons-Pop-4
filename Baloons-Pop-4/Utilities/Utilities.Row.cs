@@ -6,15 +6,15 @@ namespace BaloonsPopsGame
     using System;
     
     /// <summary>
-    /// The Row class
+    /// The Row class.
     /// </summary>
     public class Row : IComparable<Row>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Row"/> class 
+        /// Initializes a new instance of the <see cref="Row"/> class .
         /// </summary>
-        /// <param name="name">The name of the row</param>
-        /// <param name="value">The value of the row</param>
+        /// <param name="name">The name of the row.</param>
+        /// <param name="value">The value of the row.</param>
         public Row(string name, int value) 
         {
             this.Name = name;
@@ -22,22 +22,28 @@ namespace BaloonsPopsGame
         }
         
         /// <summary>
-        /// Gets or sets the name of the row
+        /// Gets or sets the name of the row.
         /// </summary>
+        /// /// <value>
+        /// The name of the Row.
+        /// </value>
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the value of the row
+        /// Gets or sets the value of the row.
         /// </summary>
+        /// <value>
+        /// The utilities row.
+        /// </value>
         public int Value { get; set; }
         
         /// <summary>
-        /// Compares two instances of the <see cref="Row"/> class by their value
+        /// Compares two instances of the <see cref="Row"/> class by their value.
         /// </summary>
-        /// <param name="other">An instance of the <see cref="Row"/></param>
+        /// <param name="other">An instance of the <see cref="Row"/>.</param>
         /// <returns>0 if the two rows are equal,
         /// 1 if the value of the first row is bigger than the value of the second
-        /// and -1 if the value of the second row is bigger than the value of the first</returns>
+        /// and -1 if the value of the second row is bigger than the value of the first.</returns>
         public int CompareTo(Row other)
         {
             return this.Value.CompareTo(other.Value);
