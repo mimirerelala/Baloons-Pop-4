@@ -171,6 +171,7 @@ namespace BaloonsPopsGame.Utilities
                         if (HighScores.IsPlayerInChart(topFive, userMoves))
                         {
                             HighScores.Print(topFive);
+                            //Console.ReadLine();
                         }
                         else
                         {

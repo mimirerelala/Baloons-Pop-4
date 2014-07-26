@@ -6,3 +6,11 @@ D:\Telerik\КПК\Teamwork\BaloonsPopsGame.Tests\bin\Debug\BaloonsPopsGame.xml
 D:\Telerik\КПК\Teamwork\BaloonsPopsGame.Tests\obj\Debug\BaloonsPopsGame.Tests.csprojResolveAssemblyReference.cache
 D:\Telerik\КПК\Teamwork\BaloonsPopsGame.Tests\obj\Debug\BaloonsPopsGame.Tests.dll
 D:\Telerik\КПК\Teamwork\BaloonsPopsGame.Tests\obj\Debug\BaloonsPopsGame.Tests.pdb
+C:\Users\Varbanoff\Desktop\balooon\BaloonsPopsGame.Tests\bin\Debug\BaloonsPopsGame.Tests.dll
+C:\Users\Varbanoff\Desktop\balooon\BaloonsPopsGame.Tests\bin\Debug\BaloonsPopsGame.Tests.pdb
+C:\Users\Varbanoff\Desktop\balooon\BaloonsPopsGame.Tests\bin\Debug\BaloonsPopsGame.exe
+C:\Users\Varbanoff\Desktop\balooon\BaloonsPopsGame.Tests\bin\Debug\BaloonsPopsGame.pdb
+C:\Users\Varbanoff\Desktop\balooon\BaloonsPopsGame.Tests\bin\Debug\BaloonsPopsGame.xml
+C:\Users\Varbanoff\Desktop\balooon\BaloonsPopsGame.Tests\obj\Debug\BaloonsPopsGame.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Varbanoff\Desktop\balooon\BaloonsPopsGame.Tests\obj\Debug\BaloonsPopsGame.Tests.dll
+C:\Users\Varbanoff\Desktop\balooon\BaloonsPopsGame.Tests\obj\Debug\BaloonsPopsGame.Tests.pdb

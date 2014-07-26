@@ -219,7 +219,7 @@
         }
 
         [TestMethod]
-        public void ProcessInputRestartsGameFieldAndMoves()
+        public void ProcessInputRestartsMoves()
         {
             int userMoves = 1;
             string restart = "RESTART";
@@ -239,5 +239,98 @@
             gameEngine.ProcessUserInput(ref userMoves, ref restart, ref field, ref fieldUtility, ref topFive, ref gameEngine);
             Assert.AreEqual(expectedMoves, userMoves);
         }
+
+        [TestMethod]
+        public void ProcessInputCommandIsChecked()
+        {
+            int userMoves = 0;
+            string firstCommand = "invalidCommand";
+            string secondCommand = "";
+            string thirdCommand = "-1 0";
+            string fourthCommand = "0 1";
+            string fifthCommand = "0 0";
+
+
+            var field = new byte[0, 0];
+            GameField fieldUtility = ClassicalGameField.Instance();
+            string[,] topFive = new string[0, 0];
+            GameLogic gameEngine = ClassicalGameLogic.Instance();
+
+            var еxpected = "Wrong input! Please try again!" + Environment.NewLine;
+            var currentConsoleOut = Console.Out;
+
+            using (var consoleOutput = new ConsoleOutput())
+            {
+                gameEngine.ProcessUserInput(ref userMoves, ref firstCommand, ref field, ref fieldUtility, ref topFive, ref gameEngine);
+                Assert.AreEqual(еxpected, consoleOutput.GetOuput());
+
+                consoleOutput.ResetOutput();
+                gameEngine.ProcessUserInput(ref userMoves, ref secondCommand, ref field, ref fieldUtility, ref topFive, ref gameEngine);
+                Assert.AreEqual(еxpected, consoleOutput.GetOuput());
+
+                consoleOutput.ResetOutput();
+                gameEngine.ProcessUserInput(ref userMoves, ref thirdCommand, ref field, ref fieldUtility, ref topFive, ref gameEngine);
+                Assert.AreEqual(еxpected, consoleOutput.GetOuput());
+
+                consoleOutput.ResetOutput();
+                gameEngine.ProcessUserInput(ref userMoves, ref fourthCommand, ref field, ref fieldUtility, ref topFive, ref gameEngine);
+                Assert.AreEqual(еxpected, consoleOutput.GetOuput());
+
+                consoleOutput.ResetOutput();
+                gameEngine.ProcessUserInput(ref userMoves, ref fifthCommand, ref field, ref fieldUtility, ref topFive, ref gameEngine);
+                Assert.AreEqual(еxpected, consoleOutput.GetOuput());
+            }
+
+            Assert.AreEqual(currentConsoleOut, Console.Out);
+        }
+
+        [TestMethod]
+        public void PopMissingBaloonShowsCorrectMessage()
+        {
+            int userMoves = 0;
+            string command = "0 0";
+
+            var field = new byte[1, 1];
+            GameField fieldUtility = ClassicalGameField.Instance();
+            string[,] topFive = new string[0, 0];
+            GameLogic gameEngine = ClassicalGameLogic.Instance();
+
+            var еxpected = "Cannot pop a missing ballon!" + Environment.NewLine;
+            var currentConsoleOut = Console.Out;
+
+            using (var consoleOutput = new ConsoleOutput())
+            {
+                gameEngine.ProcessUserInput(ref userMoves, ref command, ref field, ref fieldUtility, ref topFive, ref gameEngine);
+                Assert.AreEqual(еxpected, consoleOutput.GetOuput());
+            }
+
+            Assert.AreEqual(currentConsoleOut, Console.Out);
+        }
+
+        [TestMethod]
+        public void ProcessUserInputResetsMovesOnWin()
+        {
+            int userMoves = 1;
+            string command = "0 0";
+            string[,] topFive = new string[5, 5];
+            GameField fieldUtility = ClassicalGameField.Instance();
+            GameLogic gameEngine = ClassicalGameLogic.Instance();
+            var field = new byte[2, 2] 
+            { 
+                {1,1},
+                {1,0},
+
+            };
+
+            var input = new ConsoleInput("testName");
+            var currentConsoleIn = Console.OpenStandardInput();
+            using (input)
+            {
+                gameEngine.ProcessUserInput(ref userMoves, ref command, ref field, ref fieldUtility, ref topFive, ref gameEngine);
+                Assert.AreEqual(0, userMoves);
+            }
+        }
+
+
     }
 }

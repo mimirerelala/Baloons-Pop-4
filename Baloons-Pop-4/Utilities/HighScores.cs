@@ -20,15 +20,21 @@ namespace BaloonsPopsGame.Utilities
         public static void Print(string[,] tableToSort)
         {
             List<Row> highScores = new List<Row>();
+            int highScoreRowCounter = 5;
+            int highScoreColCounter = 1;
 
-            for (int i = 0; i < 5; ++i)
+
+            for (int i = 0; i < highScoreRowCounter; ++i)
             {
-                if (tableToSort[i, 0] == null)
+                if (tableToSort.GetLength(0) < highScoreRowCounter || tableToSort[i, 0] == null)
                 {
                     break;
                 }
 
-                highScores.Add(new Row(tableToSort[i, 1], int.Parse(tableToSort[i, 0])));
+                if (tableToSort.GetLength(1) < highScoreColCounter)
+                {
+                    highScores.Add(new Row(tableToSort[i, highScoreColCounter], int.Parse(tableToSort[i, 0])));
+                }
             }
 
             highScores.Sort();
@@ -59,11 +65,11 @@ namespace BaloonsPopsGame.Utilities
                 scoresFile.WriteLine(chart.GetLength(0));
                 scoresFile.WriteLine(chart.GetLength(1));
 
-                for (int i = 0; i < chart.GetLength(0); i++)
+                for (int row = 0; row < chart.GetLength(0); row++)
                 {
-                    for (int k = 0; k < chart.GetLength(1); k++)
+                    for (int col = 0; col < chart.GetLength(1); col++)
                     {
-                        scoresFile.WriteLine(chart[i, k]);
+                        scoresFile.WriteLine(chart[row, col]);
                     }
                 }
             }

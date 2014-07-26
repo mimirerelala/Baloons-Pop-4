@@ -368,7 +368,7 @@
             The HighScores class
             </summary>
         </member>
-        <member name="M:BaloonsPopsGame.Utilities.HighScores.SortAndPrint(System.String[0:,0:])">
+        <member name="M:BaloonsPopsGame.Utilities.HighScores.Print(System.String[0:,0:])">
             <summary>
             Sorts and prints the top five chart
             </summary>
