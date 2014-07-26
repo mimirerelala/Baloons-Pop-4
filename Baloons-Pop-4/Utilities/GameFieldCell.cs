@@ -1,6 +1,7 @@
 ﻿// <copyright file="GameFieldCell.cs" company="Team Baloons-Pop-4">
 // Open source
 // </copyright>
+// <summary>The GameFieldCell class</summary>
 namespace BaloonsPopsGame.Utilities
 {
     using System;

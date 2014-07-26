@@ -1,6 +1,7 @@
 ﻿// <copyright file="GameEngine.cs" company="Team Baloons-Pop-4">
 // Open source
 // </copyright>
+// <summary>The GameEngine class</summary>
 namespace BaloonsPopsGame.Utilities
 {
     ////STRUCTURAL DESIGN PATTERN : FACADE

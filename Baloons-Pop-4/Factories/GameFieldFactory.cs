@@ -1,6 +1,7 @@
 ﻿// <copyright file="GameFieldFactory.cs" company="Team Baloons-Pop-4">
 // Open source
 // </copyright>
+// <summary>The GameFieldFactory class</summary>
 namespace BaloonsPopsGame.Factories
 {
     ////BEHAVIORAL DESIGN PATTERN : TEMPLATE METHOD

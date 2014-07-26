@@ -1,6 +1,7 @@
 ﻿// <copyright file="ClassicalGameField.cs" company="Team Baloons-Pop-4">
 // Open source
 // </copyright>
+// <summary>The ClassicalGameField class</summary>
 namespace BaloonsPopsGame.Utilities
 {
     ////CREATIONAL DESIGN PATTERN : SINGLETON

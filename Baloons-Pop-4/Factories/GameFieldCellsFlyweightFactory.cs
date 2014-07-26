@@ -1,6 +1,7 @@
 ﻿// <copyright file="GameFieldCellsFlyweightFactory.cs" company="Team Baloons-Pop-4">
 // Open source
 // </copyright>
+// <summary>The GameFieldCellsFlyweightFactory class</summary>
 namespace BaloonsPopsGame.Factories
 {
     ////STRUCTURAL DESIGN PATTERN : FLYWEIGHT

@@ -1,6 +1,7 @@
 // <copyright file="BalloonsPops.cs" company="Team Baloons-Pop-4">
 // Open source
 // </copyright>
+// <summary>The entry point of the game</summary>
 namespace BaloonsPopsGame
 {
     using System;

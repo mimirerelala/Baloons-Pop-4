@@ -1,6 +1,7 @@
 ﻿// <copyright file="ClassicalGameLogicFactory.cs" company="Team Baloons-Pop-4">
 // Open source
 // </copyright>
+// <summary>The ClassicalGameLogicFactory class</summary>
 namespace BaloonsPopsGame.Factories
 {
     ////CREATIONAL DESIGN PATTERN : FACTORY METHOD
