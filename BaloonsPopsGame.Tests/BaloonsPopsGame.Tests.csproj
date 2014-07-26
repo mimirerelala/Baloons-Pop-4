@@ -58,6 +58,7 @@
     <Compile Include="Factories\ClassicalGameLogicFactoryTest.cs" />
     <Compile Include="Utilities\ClassicalGameFieldTest.cs" />
     <Compile Include="ConsoleOutput.cs" />
+    <Compile Include="Utilities\HighScores.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Baloons-Pop-4\BalloonsPopsGame.csproj">
